@@ -1,0 +1,24 @@
+# Node
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-lock.yaml
+package-lock.json
+
+# Vite / build
+dist/
+build/
+.vite/
+
+# Env files
+.env
+.env.*
+
+# OS / editor
+.DS_Store
+.vscode/
+*.log
+
+# Coverage
+coverage/
