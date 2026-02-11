@@ -22,3 +22,6 @@ build/
 
 # Coverage
 coverage/
+
+# Misc
+dist/
