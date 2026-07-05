@@ -86,7 +86,7 @@ const Hero = ({
                 <div className="flex flex-col lg:flex-row items-center lg:items-start justify-between gap-16 lg:gap-12 w-full mt-10">
                     
                     {/* LEFT COLUMN: Profile & Identity */}
-                    <div className="flex flex-col items-center lg:items-start flex-1 w-full lg:max-w-xl">
+                    <div className="flex flex-col items-center flex-1 w-full lg:max-w-xl text-center">
                         {/* Profile Photo */}
                         <motion.div
                             initial={{ opacity: 0, scale: 0.5, rotate: -10 }}
@@ -116,7 +116,7 @@ const Hero = ({
                             initial={{ opacity: 0, scale: 0.9, y: 20 }}
                             animate={{ opacity: 1, scale: 1, y: 0 }}
                             transition={{ duration: 1, ease: "easeOut" }}
-                            className="inline-flex items-center gap-3 px-6 py-2.5 bg-black/5 dark:bg-white/5 border border-black/10 dark:border-white/10 text-sm md:text-base font-black text-neon-cyan mb-8 shadow-lg shadow-neon-cyan/5 transition-colors"
+                            className="inline-flex items-center justify-center gap-3 px-6 py-2.5 bg-black/5 dark:bg-white/5 border border-black/10 dark:border-white/10 text-sm md:text-base font-black text-neon-cyan mb-8 shadow-lg shadow-neon-cyan/5 transition-colors"
                         >
                             <Sparkles size={18} />
                             <span>SYSTEM ACCESS GRANTED</span>
