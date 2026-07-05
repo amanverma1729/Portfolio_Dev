@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
+import About from './components/About';
 import FloatingBackground from './components/FloatingBackground';
 import Section from './components/Section';
 import ProjectCard from './components/ProjectCard';
@@ -197,57 +198,8 @@ function App() {
                     role="Full Stack Engineer"
                 />
 
-                {/* About / Mission Section */}
-                <Section id="mission" title="The Mission" subtitle="Objectives" accentColor="cyan">
-                    <div className="max-w-4xl mx-auto">
-                        <motion.div
-                            initial={{ opacity: 0, scale: 0.98 }}
-                            whileInView={{ opacity: 1, scale: 1 }}
-                            viewport={{ once: true }}
-                            className="relative p-12 md:p-16 border border-white/5 bg-white/[0.01] transition-all duration-700 hover:bg-white/[0.03] group/hud overflow-hidden"
-                        >
-                            {/* HUD Brackets */}
-                            <div className="hud-bracket hud-bracket-tl group-hover/hud:border-neon-cyan transition-colors" />
-                            <div className="hud-bracket hud-bracket-tr group-hover/hud:border-neon-cyan transition-colors" />
-                            <div className="hud-bracket hud-bracket-bl group-hover/hud:border-neon-cyan transition-colors" />
-                            <div className="hud-bracket hud-bracket-br group-hover/hud:border-neon-cyan transition-colors" />
-
-                            {/* HUD Grid & Scan */}
-                            <div className="absolute inset-0 hud-grid opacity-20 pointer-events-none" />
-                            <div className="absolute inset-0 overflow-hidden pointer-events-none opacity-0 group-hover/hud:opacity-100 transition-opacity duration-700">
-                                <div className="w-full h-1/2 bg-gradient-to-b from-transparent via-neon-cyan/10 to-transparent animate-scan" />
-                            </div>
-
-                            <div className="relative z-10 text-center">
-                                <p className="text-fluid-p text-space-900/70 dark:text-white/70 leading-relaxed font-bold mb-12 max-w-2xl mx-auto transition-colors">
-                                    Final-year B.Tech CSE student at NITRA. Proficient in React, Node.js, and Java,
-                                    with a passion for designing efficient, <span className="text-neon-cyan neon-glow-cyan">user-focused</span>
-                                    web solutions. Continuously pushing the boundaries of interface speed and structural integrity.
-                                </p>
-
-                                <div className="flex flex-wrap justify-center gap-4">
-                                    {contactInfo.map((info, i) => (
-                                        <motion.a
-                                            key={info.text}
-                                            href={info.href}
-                                            target={info.href.startsWith('http') ? "_blank" : "_self"}
-                                            rel="noopener noreferrer"
-                                            initial={{ opacity: 0, y: 10 }}
-                                            whileInView={{ opacity: 1, y: 0 }}
-                                            viewport={{ once: true }}
-                                            transition={{ delay: i * 0.1 }}
-                                            className="flex items-center gap-3 px-5 py-2.5 border border-black/5 dark:border-white/5 bg-black/5 dark:bg-white/5 text-[10px] font-black text-space-900/40 dark:text-white/40 hover:text-space-950 dark:hover:text-white hover:border-neon-cyan/40 transition-all uppercase tracking-[0.2em] relative group/link overflow-hidden"
-                                        >
-                                            <div className="absolute inset-0 bg-neon-cyan/5 -translate-x-full group-hover/link:translate-x-0 transition-transform duration-500" />
-                                            <span className={`${info.color} relative z-10`}>{info.icon}</span>
-                                            <span className="relative z-10">{info.text}</span>
-                                        </motion.a>
-                                    ))}
-                                </div>
-                            </div>
-                        </motion.div>
-                    </div>
-                </Section>
+                {/* About Section */}
+                <About />
 
                 {/* Skills Section */}
                 <Section id="skills" title="Technical Arsenal" subtitle="Payload" accentColor="emerald">
