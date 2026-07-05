@@ -121,7 +121,10 @@ const Hero = ({
                             <Sparkles size={18} />
                             <span>SYSTEM ACCESS GRANTED</span>
                         </motion.div>
+                    </div>
 
+                    {/* RIGHT COLUMN: Info & Actions */}
+                    <div className="flex flex-col items-center lg:items-start flex-1 w-full lg:max-w-2xl lg:pt-8">
                         <motion.h1
                             className="text-5xl md:text-7xl lg:text-8xl font-black tracking-tighter mb-4 leading-[1.05]"
                             initial={{ opacity: 0, y: 40 }}
@@ -131,10 +134,7 @@ const Hero = ({
                             I'm <span className="text-gradient leading-[1.2]">{name}</span><br />
                             <span className="text-4xl md:text-5xl lg:text-6xl text-space-900/80 dark:text-white/80 transition-colors uppercase tracking-tighter mt-2 block">{role}</span>
                         </motion.h1>
-                    </div>
 
-                    {/* RIGHT COLUMN: Info & Actions */}
-                    <div className="flex flex-col items-center lg:items-start flex-1 w-full lg:max-w-2xl lg:pt-20">
                         <motion.p
                             className="text-lg md:text-xl lg:text-2xl text-space-900/50 dark:text-white/50 mb-12 max-w-2xl leading-relaxed font-bold min-h-[5rem] lg:min-h-[8rem] transition-colors"
                             initial={{ opacity: 0, y: 40 }}
