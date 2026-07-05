@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { motion, useMotionValue, useTransform } from 'framer-motion';
-import { ChevronDown, Sparkles } from 'lucide-react';
+import { ChevronDown, Sparkles, Github, Linkedin, Instagram } from 'lucide-react';
 import profile from '../assets/profile.jpg';
 
 const TypingText = ({ texts, speed = 100, wait = 2000 }) => {
@@ -169,6 +169,24 @@ const Hero = ({
                                 <span className="group-hover/cv:underline decoration-neon-violet underline-offset-8">Download CV</span>
                                 <ChevronDown size={24} className="-rotate-90 group-hover/cv:translate-x-2 transition-transform" />
                             </motion.a>
+                        </motion.div>
+
+                        {/* Social Icons */}
+                        <motion.div
+                            className="flex items-center justify-center lg:justify-start gap-6 w-full mt-10"
+                            initial={{ opacity: 0, y: 20 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            transition={{ duration: 1, delay: 1, ease: "easeOut" }}
+                        >
+                            <a href="https://github.com/amanverma1729" target="_blank" rel="noopener noreferrer" className="p-4 bg-black/5 dark:bg-white/5 border border-black/10 dark:border-white/10 hover:border-neon-cyan hover:text-neon-cyan hover:neon-glow-cyan transition-all text-space-950 dark:text-white rounded-full group">
+                                <Github size={24} className="group-hover:scale-110 transition-transform" />
+                            </a>
+                            <a href="https://in.linkedin.com/in/amanverma1729" target="_blank" rel="noopener noreferrer" className="p-4 bg-black/5 dark:bg-white/5 border border-black/10 dark:border-white/10 hover:border-neon-blue hover:text-neon-blue transition-all text-space-950 dark:text-white rounded-full group">
+                                <Linkedin size={24} className="group-hover:scale-110 transition-transform" />
+                            </a>
+                            <a href="https://www.instagram.com/aman_verma1729" target="_blank" rel="noopener noreferrer" className="p-4 bg-black/5 dark:bg-white/5 border border-black/10 dark:border-white/10 hover:border-neon-rose hover:text-neon-rose transition-all text-space-950 dark:text-white rounded-full group">
+                                <Instagram size={24} className="group-hover:scale-110 transition-transform" />
+                            </a>
                         </motion.div>
                     </div>
                 </div>
