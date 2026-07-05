@@ -66,8 +66,8 @@ function App() {
             description: "Real-time communication platform with high-concurrency support. Implemented with sub-millisecond precision for seamless delivery.",
             impact: "Engineered sub-millisecond latency for 50+ concurrent streams using WebRTC and Socket.io.",
             tags: ["WebRTC", "Socket.io", "React", "Node.js"],
-            github: "https://github.com/A-manverma/Video-Conferencing",
-            link: "https://github.com/A-manverma/Video-Conferencing",
+            github: "https://github.com/amanverma1729/Video-Conferencing",
+            link: "https://github.com/amanverma1729/Video-Conferencing",
             accentColor: "rose"
         },
         {
@@ -75,8 +75,8 @@ function App() {
             description: "High-intelligence retrieval system using vector embeddings to provide specialized knowledge responses with zero hallucination drift.",
             impact: "Architected a vector-search pipeline that improved response relevance by 65% across technical documentation.",
             tags: ["Python", "LangChain", "VectorDB", "OpenAI"],
-            github: "https://github.com/A-manverma/RAG-AI-Assistant",
-            link: "https://github.com/A-manverma/RAG-AI-Assistant",
+            github: "https://github.com/amanverma1729/RAG-AI-Assistant",
+            link: "https://github.com/amanverma1729/RAG-AI-Assistant",
             accentColor: "rose"
         },
         {
@@ -84,8 +84,8 @@ function App() {
             description: "Multi-tenant digital storefront with atomic transaction handling, secure vault payments, and real-time inventory telemetry.",
             impact: "Implemented atomic ACID transactions supporting 1,000+ daily orders with 0% data inconsistency.",
             tags: ["React", "Express", "Stripe", "MongoDB"],
-            github: "https://github.com/A-manverma/E-commerce-Engine",
-            link: "https://github.com/A-manverma/E-commerce-Engine",
+            github: "https://github.com/amanverma1729/E-commerce-Engine",
+            link: "https://github.com/amanverma1729/E-commerce-Engine",
             accentColor: "rose"
         },
         {
@@ -93,8 +93,8 @@ function App() {
             description: "Architected a professional career artifact generator with a focus on atomic design principles and seamless data-to-PDF serialization.",
             impact: "Streamlined PDF generation overhead by 30% through advanced data-to-blob serialization techniques.",
             tags: ["MongoDB", "Express", "React", "Node.js"],
-            github: "https://github.com/A-manverma/ResumeGen",
-            link: "https://github.com/A-manverma/ResumeGen",
+            github: "https://github.com/amanverma1729/ResumeGen",
+            link: "https://github.com/amanverma1729/ResumeGen",
             accentColor: "rose"
         },
         {
@@ -102,8 +102,8 @@ function App() {
             description: "High-performance audio streaming interface with kinetic playback controls and a fully responsive orbital layout.",
             impact: "Delivered a pixel-perfect, zero-gravity UI with 60fps animations across all modern web viewports.",
             tags: ["HTML", "CSS", "JavaScript", "Framer Motion"],
-            github: "https://github.com/A-manverma/Spotify-Replica",
-            link: "https://github.com/A-manverma/Spotify-Replica",
+            github: "https://github.com/amanverma1729/Spotify-Replica",
+            link: "https://github.com/amanverma1729/Spotify-Replica",
             accentColor: "rose"
         }
     ];
@@ -176,8 +176,8 @@ function App() {
         { icon: <Mail size={22} />, text: "aman835400@gmail.com", href: "mailto:aman835400@gmail.com", color: "text-neon-cyan" },
         { icon: <Phone size={22} />, text: "8354002731", href: "tel:8354002731", color: "text-neon-violet" },
         { icon: <MapPin size={22} />, text: "Ghaziabad, India", href: "#", color: "text-neon-emerald" },
-        { icon: <Linkedin size={22} />, text: "Aman Verma", href: "https://www.linkedin.com/in/amanverma2022/", color: "text-neon-blue" },
-        { icon: <Github size={22} />, text: "GitHub Archive", href: "https://github.com/A-manverma", color: "text-space-950 dark:text-white" },
+        { icon: <Linkedin size={22} />, text: "Aman Verma", href: "https://in.linkedin.com/in/amanverma1729", color: "text-neon-blue" },
+        { icon: <Github size={22} />, text: "GitHub Archive", href: "https://github.com/amanverma1729", color: "text-space-950 dark:text-white" },
     ];
 
     return (
@@ -440,11 +440,11 @@ function App() {
                         </div>
 
                         <div className="flex flex-wrap justify-center md:justify-end gap-6 md:gap-12 text-xs text-space-950/40 dark:text-white/40 font-black uppercase tracking-[0.4em] transition-colors max-w-sm md:max-w-none">
-                            <a href="https://github.com/A-manverma" target="_blank" rel="noopener noreferrer" className="hover:text-neon-cyan transition-all flex items-center gap-2 group/link whitespace-nowrap">
+                            <a href="https://github.com/amanverma1729" target="_blank" rel="noopener noreferrer" className="hover:text-neon-cyan transition-all flex items-center gap-2 group/link whitespace-nowrap">
                                 <Github size={16} className="group-hover/link:text-neon-cyan transition-colors" />
                                 <span>GitHub</span>
                             </a>
-                            <a href="https://www.linkedin.com/in/amanverma2022/" target="_blank" rel="noopener noreferrer" className="hover:text-neon-cyan transition-all flex items-center gap-2 group/link whitespace-nowrap">
+                            <a href="https://in.linkedin.com/in/amanverma1729" target="_blank" rel="noopener noreferrer" className="hover:text-neon-cyan transition-all flex items-center gap-2 group/link whitespace-nowrap">
                                 <Linkedin size={16} className="group-hover/link:text-neon-cyan transition-colors" />
                                 <span>LinkedIn</span>
                             </a>
@@ -452,7 +452,7 @@ function App() {
                                 <Twitter size={16} className="group-hover/link:text-neon-cyan transition-colors" />
                                 <span>X (Twitter)</span>
                             </a>
-                            <a href="https://www.instagram.com/aman_verma1729/?hl=en" target="_blank" rel="noopener noreferrer" className="hover:text-neon-cyan transition-all flex items-center gap-2 group/link whitespace-nowrap">
+                            <a href="https://www.instagram.com/aman_verma1729" target="_blank" rel="noopener noreferrer" className="hover:text-neon-cyan transition-all flex items-center gap-2 group/link whitespace-nowrap">
                                 <Instagram size={16} className="group-hover/link:text-neon-cyan transition-colors" />
                                 <span>Instagram</span>
                             </a>
