@@ -9,17 +9,18 @@ export default {
         extend: {
             colors: {
                 space: {
-                    950: '#020617',
-                    900: '#0f172a',
-                    800: '#1e293b',
+                    950: '#050510',
+                    900: '#110D20',
+                    800: '#1c1731',
                 },
                 neon: {
-                    cyan: '#22d3ee',
-                    violet: '#a855f7',
-                    blue: '#3b82f6',
-                    emerald: '#10b981',
-                    rose: '#f43f5e',
-                    amber: '#f59e0b',
+                    cyan: '#00F0FF',
+                    violet: '#B300FF',
+                    blue: '#0055FF',
+                    emerald: '#00FFA3',
+                    rose: '#FF007B',
+                    amber: '#FFB800',
+                    pink: '#FF00C8'
                 }
             },
             fontSize: {

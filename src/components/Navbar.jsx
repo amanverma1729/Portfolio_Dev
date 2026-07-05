@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Menu, X, Ghost, Sun, Moon } from 'lucide-react';
+import { Menu, X, Download } from 'lucide-react';
 import logo from '../assets/logo.png';
 
-const Navbar = ({ isDarkMode, toggleTheme }) => {
+const Navbar = () => {
     const [scrolled, setScrolled] = useState(false);
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
     const [activeSection, setActiveSection] = useState('home');
@@ -28,7 +28,7 @@ const Navbar = ({ isDarkMode, toggleTheme }) => {
         };
 
         const observer = new IntersectionObserver(observerCallback, observerOptions);
-        const sections = ['home', 'mission', 'skills', 'education', 'projects', 'contact'];
+        const sections = ['home', 'about', 'skills', 'projects', 'experience', 'education', 'contact'];
         sections.forEach(id => {
             const el = document.getElementById(id);
             if (el) observer.observe(el);
@@ -42,45 +42,46 @@ const Navbar = ({ isDarkMode, toggleTheme }) => {
     }, []);
 
     const navLinks = [
-        { name: 'Mission', href: '#mission', id: 'mission' },
+        { name: 'Home', href: '#home', id: 'home' },
+        { name: 'About', href: '#about', id: 'about' },
         { name: 'Skills', href: '#skills', id: 'skills' },
-        { name: 'Education', href: '#education', id: 'education' },
         { name: 'Projects', href: '#projects', id: 'projects' },
+        { name: 'Experience', href: '#experience', id: 'experience' },
+        { name: 'Education', href: '#education', id: 'education' },
         { name: 'Contact', href: '#contact', id: 'contact' },
     ];
 
     return (
-        <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${scrolled ? 'py-4' : 'py-8'}`}>
-            <div className="max-w-7xl mx-auto px-6 flex justify-between items-center">
-                {/* Logo */}
+        <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${scrolled ? 'py-4 bg-space-950/80 backdrop-blur-xl border-b border-white/5 shadow-lg' : 'py-6 bg-transparent'}`}>
+            <div className="max-w-7xl mx-auto px-6 flex justify-between items-center w-full">
+                
+                {/* Logo - Left */}
                 <motion.div
-                    className="flex items-center gap-2 font-bold text-xl cursor-pointer"
+                    className="flex items-center gap-3 font-bold text-xl cursor-pointer shrink-0"
                     initial={{ opacity: 0, x: -20 }}
                     animate={{ opacity: 1, x: 0 }}
                     whileHover={{ scale: 1.05 }}
                     onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
                 >
-                    <div className="w-12 h-12 glass-card flex items-center justify-center neon-glow-cyan overflow-hidden p-1">
-                        <img src={logo} alt="Logo" className="w-full h-full object-contain" />
+                    <div className="w-8 h-8 md:w-10 md:h-10">
+                        <img src={logo} alt="AV Logo" className="w-full h-full object-contain" />
                     </div>
-                    <span className="tracking-tighter text-space-950 dark:text-white transition-colors">AMAN VERMA</span>
+                    <span className="tracking-tight text-white hidden sm:block">Aman Verma</span>
                 </motion.div>
 
-                {/* Desktop Links */}
-                <div className="hidden md:flex items-center gap-4 lg:gap-8 glass-card px-8 py-3 translate-x-4 md:translate-x-0 relative">
+                {/* Desktop Links - Center */}
+                <div className="hidden lg:flex flex-1 justify-center items-center gap-6 xl:gap-8 px-4">
                     {navLinks.map((link) => (
                         <motion.a
                             key={link.name}
                             href={link.href}
-                            className={`text-xs lg:text-sm font-black uppercase tracking-[0.2em] transition-all duration-500 relative py-2 ${activeSection === link.id ? 'text-neon-cyan' : 'text-space-950/40 dark:text-white/40 hover:text-space-950 dark:hover:text-white'
-                                }`}
-                            whileHover={{ y: -2 }}
+                            className={`text-[13px] font-medium transition-all duration-300 relative py-2 ${activeSection === link.id ? 'text-white' : 'text-gray-400 hover:text-white'}`}
                         >
                             {link.name}
                             {activeSection === link.id && (
                                 <motion.div
                                     layoutId="activeNav"
-                                    className="absolute -bottom-1 left-0 right-0 h-0.5 bg-neon-cyan neon-glow-cyan"
+                                    className="absolute -bottom-1 left-1/2 -translate-x-1/2 w-4 h-1 rounded-full bg-neon-blue shadow-[0_0_8px_rgba(0,85,255,0.8)]"
                                     transition={{ type: "spring", stiffness: 380, damping: 30 }}
                                 />
                             )}
@@ -88,54 +89,64 @@ const Navbar = ({ isDarkMode, toggleTheme }) => {
                     ))}
                 </div>
 
-                {/* CTA */}
-                <motion.button
-                    className="hidden md:block px-6 py-2 bg-black/5 dark:bg-white/5 font-black text-[10px] uppercase tracking-[0.2em] hover:neon-glow-cyan hover:text-neon-cyan transition-all text-space-950/50 dark:text-white/50 border border-black/10 dark:border-white/10"
-                    initial={{ opacity: 0, x: 20 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    onClick={() => document.getElementById('contact').scrollIntoView({ behavior: 'smooth' })}
-                >
-                    System Deployment
-                </motion.button>
+                {/* Download Resume CTA - Right */}
+                <div className="flex items-center gap-4 shrink-0">
+                    <motion.a
+                        href="https://a-manverma.github.io/Portfolio/resume.pdf"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="hidden md:flex items-center gap-2 px-6 py-2.5 bg-transparent border border-white/20 rounded-lg text-sm font-medium text-white hover:bg-white/5 hover:border-white/40 transition-all"
+                        initial={{ opacity: 0, x: 20 }}
+                        animate={{ opacity: 1, x: 0 }}
+                        whileHover={{ scale: 1.02 }}
+                        whileTap={{ scale: 0.98 }}
+                    >
+                        <Download size={16} />
+                        Download Resume
+                    </motion.a>
 
-                {/* Theme Toggle */}
-                <motion.button
-                    onClick={toggleTheme}
-                    className="p-2 bg-black/5 dark:bg-white/5 border border-black/10 dark:border-white/10 hover:border-neon-cyan/50 hover:text-neon-cyan transition-all text-space-950/40 dark:text-white/40 flex items-center justify-center shrink-0"
-                    whileHover={{ scale: 1.1, rotate: 15 }}
-                    whileTap={{ scale: 0.9 }}
-                >
-                    {isDarkMode ? <Sun size={20} className="text-neon-amber" /> : <Moon size={20} className="text-neon-violet" />}
-                </motion.button>
-
-                {/* Mobile Toggle */}
-                <button
-                    className="md:hidden bg-black/5 dark:bg-white/5 border border-black/10 dark:border-white/10 p-2 text-space-950/70 dark:text-white/70"
-                    onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-                >
-                    {mobileMenuOpen ? <X /> : <Menu />}
-                </button>
+                    {/* Mobile Menu Toggle */}
+                    <button
+                        className="lg:hidden text-white p-2 hover:bg-white/5 rounded-lg transition-colors"
+                        onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+                    >
+                        {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
+                    </button>
+                </div>
             </div>
 
-            {/* Mobile Menu */}
+            {/* Mobile Menu Overlay */}
             <AnimatePresence>
                 {mobileMenuOpen && (
                     <motion.div
-                        initial={{ opacity: 0, y: -20 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        exit={{ opacity: 0, y: -20 }}
-                        className="absolute top-full left-6 right-6 mt-4 p-8 glass-card bg-white/95 dark:bg-space-950/95 backdrop-blur-xl md:hidden flex flex-col gap-6 shadow-2xl border border-black/10 dark:border-white/10"
+                        initial={{ opacity: 0, height: 0 }}
+                        animate={{ opacity: 1, height: 'auto' }}
+                        exit={{ opacity: 0, height: 0 }}
+                        className="absolute top-full left-0 right-0 bg-space-950/95 backdrop-blur-xl lg:hidden border-b border-white/10 overflow-hidden"
                     >
-                        {navLinks.map((link) => (
+                        <div className="flex flex-col p-6 gap-4">
+                            {navLinks.map((link) => (
+                                <a
+                                    key={link.name}
+                                    href={link.href}
+                                    className={`text-lg font-medium transition-colors ${activeSection === link.id ? 'text-neon-blue' : 'text-gray-300 hover:text-white'}`}
+                                    onClick={() => {
+                                        setMobileMenuOpen(false);
+                                    }}
+                                >
+                                    {link.name}
+                                </a>
+                            ))}
                             <a
-                                key={link.name}
-                                href={link.href}
-                                className="text-lg font-bold text-space-950/70 dark:text-white/70 hover:text-neon-cyan transition-colors"
-                                onClick={() => setMobileMenuOpen(false)}
+                                href="https://a-manverma.github.io/Portfolio/resume.pdf"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="flex items-center justify-center gap-2 mt-4 px-6 py-3 bg-white/10 border border-white/20 rounded-lg text-sm font-medium text-white"
                             >
-                                {link.name}
+                                <Download size={18} />
+                                Download Resume
                             </a>
-                        ))}
+                        </div>
                     </motion.div>
                 )}
             </AnimatePresence>
