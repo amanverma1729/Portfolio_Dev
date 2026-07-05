@@ -23,8 +23,11 @@ export default {
                 }
             },
             fontSize: {
-                'hero': ['5rem', { lineHeight: '1.1', letterSpacing: '-0.02em', fontWeight: '800' }],
-                'hero-mobile': ['3rem', { lineHeight: '1.2', letterSpacing: '-0.02em', fontWeight: '800' }],
+                'fluid-h1': ['clamp(3rem, 8vw, 6rem)', { lineHeight: '1.05', letterSpacing: '-0.02em' }],
+                'fluid-h2': ['clamp(2.5rem, 5vw, 4rem)', { lineHeight: '1.1', letterSpacing: '-0.02em' }],
+                'fluid-h3': ['clamp(1.75rem, 4vw, 3rem)', { lineHeight: '1.2', letterSpacing: '-0.01em' }],
+                'fluid-p': ['clamp(1rem, 2vw, 1.25rem)', { lineHeight: '1.6' }],
+                'fluid-base': ['clamp(0.875rem, 1.5vw, 1.125rem)', { lineHeight: '1.5' }],
             },
             lineHeight: {
                 'relaxed-plus': '1.8',

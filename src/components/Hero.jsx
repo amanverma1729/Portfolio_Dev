@@ -126,17 +126,17 @@ const Hero = ({
                     {/* RIGHT COLUMN: Info & Actions */}
                     <div className="flex flex-col items-center lg:items-start flex-1 w-full lg:max-w-2xl lg:pt-8">
                         <motion.h1
-                            className="text-5xl md:text-7xl lg:text-8xl font-black tracking-tighter mb-4 leading-[1.05]"
+                            className="text-fluid-h1 font-black tracking-tighter mb-4"
                             initial={{ opacity: 0, y: 40 }}
                             animate={{ opacity: 1, y: 0 }}
                             transition={{ duration: 1, delay: 0.4, ease: "easeOut" }}
                         >
                             I'm <span className="text-gradient leading-[1.2]">{name}</span><br />
-                            <span className="text-4xl md:text-5xl lg:text-6xl text-space-900/80 dark:text-white/80 transition-colors uppercase tracking-tighter mt-2 block">{role}</span>
+                            <span className="text-fluid-h2 text-space-900/80 dark:text-white/80 transition-colors uppercase tracking-tighter mt-2 block">{role}</span>
                         </motion.h1>
 
                         <motion.p
-                            className="text-lg md:text-xl lg:text-2xl text-space-900/50 dark:text-white/50 mb-12 max-w-2xl leading-relaxed font-bold min-h-[5rem] lg:min-h-[8rem] transition-colors"
+                            className="text-fluid-p text-space-900/50 dark:text-white/50 mb-12 max-w-2xl leading-relaxed font-bold min-h-[5rem] lg:min-h-[8rem] transition-colors"
                             initial={{ opacity: 0, y: 40 }}
                             animate={{ opacity: 1, y: 0 }}
                             transition={{ duration: 1, delay: 0.6, ease: "easeOut" }}
@@ -192,7 +192,7 @@ const Hero = ({
                         { label: "Optimization", value: "Extreme", color: "text-neon-rose" }
                     ].map((stat, i) => (
                         <div key={i} className="flex flex-col items-center gap-3 group/stat">
-                            <span className={`text-3xl md:text-5xl font-black transition-all duration-500 group-hover:scale-110 ${stat.color}`}>{stat.value}</span>
+                            <span className={`text-fluid-h3 font-black transition-all duration-500 group-hover:scale-110 ${stat.color}`}>{stat.value}</span>
                             <span className="text-[9px] md:text-[10px] uppercase tracking-[0.4em] text-space-900/40 dark:text-white/40 font-black">{stat.label}</span>
                         </div>
                     ))}

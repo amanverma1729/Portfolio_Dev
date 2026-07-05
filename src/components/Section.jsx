@@ -52,7 +52,7 @@ const Section = ({
                         {subtitle}
                     </motion.span>
                 )}
-                <h2 className="text-6xl md:text-8xl font-black tracking-tighter text-space-950 dark:text-white leading-[0.9] transition-colors">
+                <h2 className="text-fluid-h1 font-black tracking-tighter text-space-950 dark:text-white leading-[0.9] transition-colors">
                     {title}
                 </h2>
                 <div className={`w-32 h-1.5 mx-auto mt-10 rounded-full bg-gradient-to-r from-transparent via-${accentColor === 'cyan' ? 'neon-cyan' : `neon-${accentColor}`} to-transparent shadow-[0_0_15px_rgba(0,0,0,0.02)] dark:shadow-[0_0_15px_rgba(255,255,255,0.1)] transition-all`} />

@@ -219,7 +219,7 @@ function App() {
                             </div>
 
                             <div className="relative z-10 text-center">
-                                <p className="text-xl md:text-2xl text-space-900/70 dark:text-white/70 leading-relaxed font-bold mb-12 max-w-2xl mx-auto transition-colors">
+                                <p className="text-fluid-p text-space-900/70 dark:text-white/70 leading-relaxed font-bold mb-12 max-w-2xl mx-auto transition-colors">
                                     Final-year B.Tech CSE student at NITRA. Proficient in React, Node.js, and Java,
                                     with a passion for designing efficient, <span className="text-neon-cyan neon-glow-cyan">user-focused</span>
                                     web solutions. Continuously pushing the boundaries of interface speed and structural integrity.
@@ -302,13 +302,13 @@ function App() {
                                 </div>
                                 <div className="flex-grow relative z-10">
                                     <div className="flex flex-col md:flex-row justify-between mb-8 gap-4">
-                                        <h3 className="text-3xl font-black text-space-950 dark:text-white group-hover/hud:text-neon-amber transition-colors leading-tight uppercase tracking-tighter transition-colors">{edu.degree}</h3>
+                                        <h3 className="text-fluid-h3 font-black text-space-950 dark:text-white group-hover/hud:text-neon-amber transition-colors leading-tight uppercase tracking-tighter">{edu.degree}</h3>
                                         <div className="flex items-center gap-3 text-neon-amber text-[10px] font-black uppercase tracking-[0.3em] border border-neon-amber/20 px-5 py-2.5 h-fit bg-neon-amber/5 transition-colors">
                                             <Calendar size={12} />
                                             {edu.duration}
                                         </div>
                                     </div>
-                                    <h4 className="text-space-900/60 dark:text-white/60 font-black text-xl mb-8 flex items-center gap-4 uppercase tracking-tighter transition-colors">
+                                    <h4 className="text-space-900/60 dark:text-white/60 font-black text-fluid-p mb-8 flex items-center gap-4 uppercase tracking-tighter transition-colors">
                                         <MapPin size={22} className="text-neon-violet opacity-50" />
                                         {edu.institution}
                                     </h4>
@@ -357,8 +357,8 @@ function App() {
                                     <div className="w-24 h-24 border-2 border-neon-violet bg-neon-violet/10 flex items-center justify-center text-neon-violet neon-glow-violet animate-pulse">
                                         <CheckCircle2 size={48} />
                                     </div>
-                                    <h3 className="text-4xl font-black text-space-950 dark:text-white uppercase tracking-tighter transition-colors">Message Sent Successfully</h3>
-                                    <p className="text-xl text-space-900/40 dark:text-white/40 font-bold max-w-sm mx-auto uppercase tracking-widest transition-colors">
+                                    <h3 className="text-fluid-h2 font-black text-space-950 dark:text-white uppercase tracking-tighter transition-colors">Message Sent Successfully</h3>
+                                    <p className="text-fluid-base text-space-900/40 dark:text-white/40 font-bold max-w-sm mx-auto uppercase tracking-widest transition-colors">
                                         Thank you for reaching out. I'll get back to you shortly.
                                     </p>
                                 </motion.div>
@@ -370,8 +370,8 @@ function App() {
                                     exit={{ opacity: 0 }}
                                     className="relative z-10"
                                 >
-                                    <h3 className="text-4xl font-black mb-8 text-space-950 dark:text-white uppercase tracking-tighter transition-colors">Let's Connect</h3>
-                                    <p className="text-xl text-space-900/40 dark:text-white/40 mb-14 font-bold leading-relaxed uppercase tracking-widest text-xs md:text-sm transition-colors">
+                                    <h3 className="text-fluid-h2 font-black mb-8 text-space-950 dark:text-white uppercase tracking-tighter transition-colors">Let's Connect</h3>
+                                    <p className="text-fluid-base text-space-900/40 dark:text-white/40 mb-14 font-bold leading-relaxed uppercase tracking-widest transition-colors">
                                         I'm currently available for new projects and collaborations.
                                     </p>
                                     <form className="space-y-6" onSubmit={handleContactSubmit}>
