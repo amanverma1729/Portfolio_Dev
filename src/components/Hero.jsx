@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { motion, useMotionValue, useTransform } from 'framer-motion';
-import { ChevronDown, Sparkles, Github, Linkedin, Twitter, Instagram, Mail } from 'lucide-react';
+import { ChevronDown, Sparkles } from 'lucide-react';
 import profile from '../assets/profile.jpg';
 
 const TypingText = ({ texts, speed = 100, wait = 2000 }) => {
@@ -46,14 +46,6 @@ const Hero = ({
         "Defying limits to build the next generation of web interfaces."
     ];
 
-    const socialLinks = [
-        { icon: <Github size={20} />, href: "https://github.com/amanverma1729", color: "hover:text-neon-cyan" },
-        { icon: <Linkedin size={20} />, href: "https://www.linkedin.com/in/amanverma1729/", color: "hover:text-neon-blue" },
-        { icon: <Twitter size={20} />, href: "https://x.com/AmanVerma1729", color: "hover:text-neon-cyan" },
-        { icon: <Instagram size={20} />, href: "https://www.instagram.com/aman_verma1729?igsh=ZHQ4dDJob3YxZjdk", color: "hover:text-neon-rose" },
-        { icon: <Mail size={20} />, href: "mailto:aman835400@gmail.com", color: "hover:text-neon-violet" }
-    ];
-
     // Mouse Parallax Values
     const mouseX = useMotionValue(0);
     const mouseY = useMotionValue(0);
@@ -78,7 +70,7 @@ const Hero = ({
     }, [mouseX, mouseY]);
 
     return (
-        <section id="home" className="min-h-screen flex flex-col justify-start lg:justify-center items-center px-6 relative pt-32 lg:pt-48 pb-12 overflow-hidden">
+        <section id="home" className="min-h-screen flex flex-col justify-center items-center px-6 text-center relative pt-32 pb-20 overflow-hidden">
             {/* Parallax Background Blobs */}
             <motion.div
                 style={{ x: x1, y: y1 }}
@@ -89,12 +81,8 @@ const Hero = ({
                 className="absolute bottom-1/4 right-1/4 w-64 h-64 glass-card rounded-full blur-2xl neon-glow-violet opacity-10 dark:opacity-20 pointer-events-none"
             />
 
-            <div className="max-w-7xl relative z-10 w-full px-4 md:px-8 flex flex-col items-center">
-                <div className="flex flex-col lg:flex-row items-center justify-between w-full gap-12 lg:gap-24">
-                    
-                    {/* Left Column */}
-                    <div className="flex flex-col items-center lg:items-start text-center lg:text-left flex-1 w-full gap-6 lg:gap-8">
-                        {/* Profile Photo Integration */}
+            <div className="max-w-5xl relative z-10 flex flex-col items-center">
+                {/* Profile Photo Integration */}
                 <motion.div
                     initial={{ opacity: 0, scale: 0.5, rotate: -10 }}
                     animate={{ opacity: 1, scale: 1, rotate: 0 }}
@@ -104,7 +92,7 @@ const Hero = ({
                         damping: 20,
                         delay: 0.2
                     }}
-                    className="relative"
+                    className="relative mb-12"
                 >
                     <div className="w-48 h-48 md:w-64 md:h-64 rounded-full p-2 glass-card neon-glow-cyan overflow-hidden animate-float-slow transition-all duration-500 hover:neon-glow-violet group">
                         <img
@@ -135,27 +123,24 @@ const Hero = ({
                     initial={{ opacity: 0, scale: 0.9, y: 20 }}
                     animate={{ opacity: 1, scale: 1, y: 0 }}
                     transition={{ duration: 1, ease: "easeOut" }}
-                    className="inline-flex items-center gap-3 px-6 py-2.5 bg-black/5 dark:bg-white/5 border border-black/10 dark:border-white/10 text-sm md:text-base font-black text-neon-cyan shadow-lg shadow-neon-cyan/5 transition-colors"
+                    className="inline-flex items-center gap-3 px-6 py-2.5 bg-black/5 dark:bg-white/5 border border-black/10 dark:border-white/10 text-sm md:text-base font-black text-neon-cyan mb-10 shadow-lg shadow-neon-cyan/5 transition-colors"
                 >
                     <Sparkles size={18} />
                     <span>SYSTEM ACCESS GRANTED</span>
                 </motion.div>
 
                 <motion.h1
-                    className="text-5xl md:text-7xl lg:text-7xl xl:text-8xl font-black tracking-tighter leading-[1.05]"
+                    className="text-5xl md:text-9xl font-black tracking-tighter mb-10 leading-[1.05]"
                     initial={{ opacity: 0, y: 40 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 1, delay: 0.4, ease: "easeOut" }}
                 >
                     I'm <span className="text-gradient leading-[1.2]">{name}</span><br />
-                    <span className="text-3xl md:text-5xl text-space-900/80 dark:text-white/80 transition-colors uppercase tracking-tighter">{role}</span>
+                    <span className="text-5xl md:text-7xl text-space-900/80 dark:text-white/80 transition-colors uppercase tracking-tighter">{role}</span>
                 </motion.h1>
-                    </div>
 
-                    {/* Right Column */}
-                    <div className="flex flex-col items-center lg:items-start text-center lg:text-left flex-1 w-full lg:max-w-2xl">
-                        <motion.p
-                            className="text-base md:text-lg text-space-900/50 dark:text-white/50 mb-8 max-w-2xl mx-auto lg:mx-0 leading-relaxed font-bold min-h-[4rem] md:h-12 transition-colors"
+                <motion.p
+                    className="text-lg md:text-xl text-space-900/50 dark:text-white/50 mb-12 max-w-2xl mx-auto leading-relaxed font-bold min-h-[4rem] md:h-12 transition-colors"
                     initial={{ opacity: 0, y: 40 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 1, delay: 0.6, ease: "easeOut" }}
@@ -164,55 +149,35 @@ const Hero = ({
                 </motion.p>
 
                 <motion.div
-                    className="flex flex-col items-center lg:items-start gap-8 mt-4 w-full"
+                    className="flex flex-col md:flex-row items-center justify-center gap-8"
                     initial={{ opacity: 0, y: 40 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 1, delay: 0.8, ease: "easeOut" }}
                 >
-                    <div className="flex flex-col md:flex-row items-center justify-center lg:justify-start gap-6 w-full">
-                        <motion.a
-                            href="#projects"
-                            className="w-full md:w-auto px-10 py-4 border border-neon-cyan/50 bg-neon-cyan/10 font-black text-sm md:text-base hover:neon-glow-cyan transition-all text-space-950 dark:text-white uppercase tracking-widest relative overflow-hidden group/btn"
-                            whileHover={{ y: -4, scale: 1.05 }}
-                            whileTap={{ scale: 0.95 }}
-                        >
-                            <span className="relative z-10">Access Projects</span>
-                            <div className="absolute inset-0 bg-gradient-to-r from-transparent via-black/10 dark:via-white/20 to-transparent -translate-x-full group-hover/btn:animate-shimmer" />
-                        </motion.a>
-                        
-                        <motion.a
-                            href="https://a-manverma.github.io/Portfolio/resume.pdf"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="w-full md:w-auto px-10 py-4 border border-neon-violet/50 font-black text-sm md:text-base hover:bg-neon-violet/10 hover:neon-glow-violet transition-all text-space-950 dark:text-white uppercase tracking-widest flex justify-center items-center gap-3 group/cv"
-                            whileHover={{ y: -4, scale: 1.05 }}
-                            whileTap={{ scale: 0.95 }}
-                        >
-                            <span>Download CV</span>
-                            <ChevronDown size={20} className="-rotate-90 group-hover/cv:translate-x-1 transition-transform" />
-                        </motion.a>
-                    </div>
-
-                    <div className="flex flex-wrap items-center justify-center lg:justify-start gap-4 mt-2">
-                        {socialLinks.map((link, i) => (
-                            <a
-                                key={i}
-                                href={link.href}
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                className={`p-3 rounded-full bg-black/5 dark:bg-white/5 border border-black/10 dark:border-white/10 text-space-950/60 dark:text-white/60 transition-all duration-300 hover:-translate-y-1 ${link.color}`}
-                            >
-                                {link.icon}
-                            </a>
-                        ))}
-                    </div>
+                    <motion.a
+                        href="#projects"
+                        className="w-full md:w-auto px-12 py-5 border border-neon-cyan/50 bg-neon-cyan/10 font-black text-lg hover:neon-glow-cyan transition-all text-space-950 dark:text-white uppercase tracking-widest relative overflow-hidden group/btn"
+                        whileHover={{ y: -8, scale: 1.05 }}
+                        whileTap={{ scale: 0.95 }}
+                    >
+                        <span className="relative z-10">Access Projects</span>
+                        <div className="absolute inset-0 bg-gradient-to-r from-transparent via-black/10 dark:via-white/20 to-transparent -translate-x-full group-hover/btn:animate-shimmer" />
+                    </motion.a>
+                    <motion.a
+                        href="https://a-manverma.github.io/Portfolio/resume.pdf"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="w-full md:w-auto px-12 py-5 font-black text-lg text-space-950/70 dark:text-white/70 hover:text-neon-violet transition-all uppercase tracking-widest flex items-center gap-3 group/cv"
+                        whileHover={{ x: 10 }}
+                    >
+                        <span className="group-hover/cv:underline decoration-neon-violet underline-offset-8">Download CV</span>
+                        <ChevronDown size={24} className="-rotate-90 group-hover/cv:translate-x-2 transition-transform" />
+                    </motion.a>
                 </motion.div>
-                    </div>
-                </div>
 
                 {/* Technical Impact HUD */}
                 <motion.div
-                    className="mt-12 flex flex-wrap justify-center gap-6 md:gap-16 border-y border-black/5 dark:border-white/5 py-8 w-full max-w-4xl relative shadow-2xl shadow-black/5"
+                    className="mt-24 flex flex-wrap justify-center gap-10 md:gap-24 border-y border-black/5 dark:border-white/5 py-12 w-full max-w-4xl relative shadow-2xl shadow-black/5"
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 1, delay: 1, ease: "easeOut" }}
@@ -229,7 +194,7 @@ const Hero = ({
                         { label: "Optimization", value: "Extreme", color: "text-neon-rose" }
                     ].map((stat, i) => (
                         <div key={i} className="flex flex-col items-center gap-3 group/stat">
-                            <span className={`text-2xl md:text-4xl font-black transition-all duration-500 group-hover:scale-110 ${stat.color}`}>{stat.value}</span>
+                            <span className={`text-3xl md:text-5xl font-black transition-all duration-500 group-hover:scale-110 ${stat.color}`}>{stat.value}</span>
                             <span className="text-[9px] md:text-[10px] uppercase tracking-[0.4em] text-space-900/40 dark:text-white/40 font-black">{stat.label}</span>
                         </div>
                     ))}
