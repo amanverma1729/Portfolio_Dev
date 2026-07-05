@@ -4,6 +4,7 @@ import Hero from './components/Hero';
 import About from './components/About';
 import Skills from './components/Skills';
 import Projects from './components/Projects';
+import Experience from './components/Experience';
 import FloatingBackground from './components/FloatingBackground';
 import ProjectCard from './components/ProjectCard';
 import CustomCursor from './components/CustomCursor';
@@ -64,26 +65,7 @@ function App() {
 
 
 
-    const education = [
-        {
-            degree: "B.Tech in Computer Science & Engineering",
-            institution: "NITRA Technical Campus, Ghaziabad",
-            duration: "2022 – 2026",
-            details: "CGPA: 6.8 | Specialized in Web Development & Java"
-        },
-        {
-            degree: "Secondary Education (XII)",
-            institution: "St. Kamal Children Senior Secondary School",
-            duration: "2022",
-            details: "Percentage: 71.33% | Science Stream"
-        },
-        {
-            degree: "Primary Education (X)",
-            institution: "St. Kamal Children Senior Secondary School",
-            duration: "2020",
-            details: "Percentage: 81.33%"
-        }
-    ];
+
 
     const contactInfo = [
         { icon: <Mail size={22} />, text: "aman835400@gmail.com", href: "mailto:aman835400@gmail.com", color: "text-neon-cyan" },
@@ -116,46 +98,8 @@ function App() {
                 {/* Skills Section */}
                 <Skills />
 
-                {/* Education Section */}
-                <Section id="education" title="Academic Trajectory" subtitle="Deployment" accentColor="amber">
-                    <div className="max-w-4xl mx-auto space-y-12">
-                        {education.map((edu, i) => (
-                            <motion.div
-                                key={edu.degree}
-                                initial={{ opacity: 0, x: i % 2 === 0 ? -40 : 40 }}
-                                whileInView={{ opacity: 1, x: 0 }}
-                                viewport={{ once: true }}
-                                transition={{ duration: 1, delay: i * 0.2 }}
-                                className="relative p-12 border border-white/5 bg-white/[0.01] hover:bg-white/[0.03] transition-all duration-700 group/hud overflow-hidden flex flex-col md:flex-row gap-12"
-                            >
-                                <div className="hud-bracket hud-bracket-tl group-hover/hud:border-neon-amber/50 transition-colors" />
-                                <div className="hud-bracket hud-bracket-br group-hover/hud:border-neon-amber/50 transition-colors" />
-                                <div className="hud-grid absolute inset-0 opacity-10 pointer-events-none" />
-
-                                <div className="flex-shrink-0 w-24 h-24 border border-neon-amber/20 bg-white/5 flex items-center justify-center text-neon-amber group-hover/hud:neon-glow-amber transition-all duration-700">
-                                    <GraduationCap size={44} />
-                                </div>
-                                <div className="flex-grow relative z-10">
-                                    <div className="flex flex-col md:flex-row justify-between mb-8 gap-4">
-                                        <h3 className="text-fluid-h3 font-black text-space-950 dark:text-white group-hover/hud:text-neon-amber transition-colors leading-tight uppercase tracking-tighter">{edu.degree}</h3>
-                                        <div className="flex items-center gap-3 text-neon-amber text-[10px] font-black uppercase tracking-[0.3em] border border-neon-amber/20 px-5 py-2.5 h-fit bg-neon-amber/5 transition-colors">
-                                            <Calendar size={12} />
-                                            {edu.duration}
-                                        </div>
-                                    </div>
-                                    <h4 className="text-space-900/60 dark:text-white/60 font-black text-fluid-p mb-8 flex items-center gap-4 uppercase tracking-tighter transition-colors">
-                                        <MapPin size={22} className="text-neon-violet opacity-50" />
-                                        {edu.institution}
-                                    </h4>
-                                    <div className="inline-flex items-center gap-4 text-xs font-black text-neon-amber uppercase tracking-[0.3em] border-l-2 border-neon-amber/40 dark:border-neon-amber/20 pl-6 py-1 transition-colors">
-                                        <Star size={18} fill="currentColor" className="opacity-70" />
-                                        {edu.details}
-                                    </div>
-                                </div>
-                            </motion.div>
-                        ))}
-                    </div>
-                </Section>
+                {/* Experience & Education Section */}
+                <Experience />
 
                 {/* Projects Section */}
                 <Projects />
