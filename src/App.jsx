@@ -66,8 +66,8 @@ function App() {
             description: "Real-time communication platform with high-concurrency support. Implemented with sub-millisecond precision for seamless delivery.",
             impact: "Engineered sub-millisecond latency for 50+ concurrent streams using WebRTC and Socket.io.",
             tags: ["WebRTC", "Socket.io", "React", "Node.js"],
-            github: "https://github.com/A-manverma",
-            link: "#",
+            github: "https://github.com/A-manverma/Video-Conferencing",
+            link: "https://github.com/A-manverma/Video-Conferencing",
             accentColor: "rose"
         },
         {
@@ -75,8 +75,8 @@ function App() {
             description: "High-intelligence retrieval system using vector embeddings to provide specialized knowledge responses with zero hallucination drift.",
             impact: "Architected a vector-search pipeline that improved response relevance by 65% across technical documentation.",
             tags: ["Python", "LangChain", "VectorDB", "OpenAI"],
-            github: "https://github.com/A-manverma",
-            link: "#",
+            github: "https://github.com/A-manverma/RAG-AI-Assistant",
+            link: "https://github.com/A-manverma/RAG-AI-Assistant",
             accentColor: "rose"
         },
         {
@@ -84,8 +84,8 @@ function App() {
             description: "Multi-tenant digital storefront with atomic transaction handling, secure vault payments, and real-time inventory telemetry.",
             impact: "Implemented atomic ACID transactions supporting 1,000+ daily orders with 0% data inconsistency.",
             tags: ["React", "Express", "Stripe", "MongoDB"],
-            github: "https://github.com/A-manverma",
-            link: "#",
+            github: "https://github.com/A-manverma/E-commerce-Engine",
+            link: "https://github.com/A-manverma/E-commerce-Engine",
             accentColor: "rose"
         },
         {
@@ -93,8 +93,8 @@ function App() {
             description: "Architected a professional career artifact generator with a focus on atomic design principles and seamless data-to-PDF serialization.",
             impact: "Streamlined PDF generation overhead by 30% through advanced data-to-blob serialization techniques.",
             tags: ["MongoDB", "Express", "React", "Node.js"],
-            github: "https://github.com/A-manverma",
-            link: "#",
+            github: "https://github.com/A-manverma/ResumeGen",
+            link: "https://github.com/A-manverma/ResumeGen",
             accentColor: "rose"
         },
         {
@@ -102,8 +102,8 @@ function App() {
             description: "High-performance audio streaming interface with kinetic playback controls and a fully responsive orbital layout.",
             impact: "Delivered a pixel-perfect, zero-gravity UI with 60fps animations across all modern web viewports.",
             tags: ["HTML", "CSS", "JavaScript", "Framer Motion"],
-            github: "https://github.com/A-manverma",
-            link: "#",
+            github: "https://github.com/A-manverma/Spotify-Replica",
+            link: "https://github.com/A-manverma/Spotify-Replica",
             accentColor: "rose"
         }
     ];

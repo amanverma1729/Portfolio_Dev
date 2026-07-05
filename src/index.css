@@ -23,11 +23,11 @@ body {
   }
 
   .neon-glow-cyan {
-    box-shadow: 0 0 20px rgba(34, 211, 238, 0.2);
+    box-shadow: 0 10px 40px -10px rgba(34, 211, 238, 0.15);
   }
 
   .neon-glow-violet {
-    box-shadow: 0 0 20px rgba(168, 85, 247, 0.2);
+    box-shadow: 0 10px 40px -10px rgba(168, 85, 247, 0.15);
   }
 
   .text-gradient {
@@ -82,36 +82,31 @@ body {
 }
 
 .hud-bracket {
-  @apply absolute w-4 h-4 border-black/10 dark:border-white/30;
+  @apply absolute w-4 h-4 opacity-0;
 }
 
 .hud-bracket-tl {
-  @apply top-0 left-0 border-t-2 border-l-2;
+  @apply top-0 left-0;
 }
 
 .hud-bracket-tr {
-  @apply top-0 right-0 border-t-2 border-r-2;
+  @apply top-0 right-0;
 }
 
 .hud-bracket-bl {
-  @apply bottom-0 left-0 border-b-2 border-l-2;
+  @apply bottom-0 left-0;
 }
 
 .hud-bracket-br {
-  @apply bottom-0 right-0 border-b-2 border-r-2;
+  @apply bottom-0 right-0;
 }
 
 .hud-grid {
-  background-image:
-    linear-gradient(rgba(0, 0, 0, 0.05) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(0, 0, 0, 0.05) 1px, transparent 1px);
-  background-size: 20px 20px;
+  background: transparent;
 }
 
 .dark .hud-grid {
-  background-image:
-    linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+  background: transparent;
 }
 
 .glass-sheen {
