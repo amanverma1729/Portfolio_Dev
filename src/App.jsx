@@ -12,19 +12,10 @@ import ProjectCard from './components/ProjectCard';
 import CustomCursor from './components/CustomCursor';
 import MissionLoading from './components/MissionLoading';
 import ScrollProgress from './components/ScrollProgress';
-import { motion, AnimatePresence } from 'framer-motion';
-import {
-    Cpu, Globe, Rocket, Terminal, Code, Database, Server,
-    Layers, GitBranch, Github, Palette, Layout, Atom, Coffee,
-    Mail, Phone, MapPin, Linkedin, GraduationCap, Calendar, Star,
-    FileText, Briefcase, CheckCircle2, Send, Sun, Moon,
-    Instagram, Twitter, MessageCircle, Ghost, Sparkles
-} from 'lucide-react';
-import logo from './assets/logo.png';
+import { AnimatePresence } from 'framer-motion';
 
 function App() {
     const [loading, setLoading] = useState(true);
-    const [formStatus, setFormStatus] = useState('idle'); // idle, sending, success
     const [isDarkMode, setIsDarkMode] = useState(true);
 
     useEffect(() => {
@@ -36,15 +27,7 @@ function App() {
     }, [isDarkMode]);
 
     const toggleTheme = () => setIsDarkMode(!isDarkMode);
-
-
-
-
-
-
-
-
-
+    
     return (
         <div className="relative min-h-screen text-space-950 dark:text-white selection:bg-neon-cyan/30 overflow-x-hidden bg-white dark:bg-space-950 font-medium transition-colors">
             <AnimatePresence>

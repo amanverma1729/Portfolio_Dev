@@ -67,47 +67,6 @@ body {
   animation: shimmer 2s infinite ease-in-out;
 }
 
-@keyframes scan {
-  from {
-    transform: translateY(-100%);
-  }
-
-  to {
-    transform: translateY(100%);
-  }
-}
-
-.animate-scan {
-  animation: scan 4s linear infinite;
-}
-
-.hud-bracket {
-  @apply absolute w-4 h-4 opacity-0;
-}
-
-.hud-bracket-tl {
-  @apply top-0 left-0;
-}
-
-.hud-bracket-tr {
-  @apply top-0 right-0;
-}
-
-.hud-bracket-bl {
-  @apply bottom-0 left-0;
-}
-
-.hud-bracket-br {
-  @apply bottom-0 right-0;
-}
-
-.hud-grid {
-  background: transparent;
-}
-
-.dark .hud-grid {
-  background: transparent;
-}
 
 .glass-sheen {
   position: relative;
