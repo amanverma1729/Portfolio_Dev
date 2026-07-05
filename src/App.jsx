@@ -2,8 +2,9 @@ import React, { useState, useEffect } from 'react';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import About from './components/About';
+import Skills from './components/Skills';
+import Projects from './components/Projects';
 import FloatingBackground from './components/FloatingBackground';
-import Section from './components/Section';
 import ProjectCard from './components/ProjectCard';
 import CustomCursor from './components/CustomCursor';
 import MissionLoading from './components/MissionLoading';
@@ -61,96 +62,7 @@ function App() {
         }
     };
 
-    const projects = [
-        {
-            title: "Video Conferencing",
-            description: "Real-time communication platform with high-concurrency support. Implemented with sub-millisecond precision for seamless delivery.",
-            impact: "Engineered sub-millisecond latency for 50+ concurrent streams using WebRTC and Socket.io.",
-            tags: ["WebRTC", "Socket.io", "React", "Node.js"],
-            github: "https://github.com/amanverma1729/Video-Conferencing",
-            link: "https://github.com/amanverma1729/Video-Conferencing",
-            accentColor: "rose"
-        },
-        {
-            title: "RAG AI Assistant",
-            description: "High-intelligence retrieval system using vector embeddings to provide specialized knowledge responses with zero hallucination drift.",
-            impact: "Architected a vector-search pipeline that improved response relevance by 65% across technical documentation.",
-            tags: ["Python", "LangChain", "VectorDB", "OpenAI"],
-            github: "https://github.com/amanverma1729/RAG-AI-Assistant",
-            link: "https://github.com/amanverma1729/RAG-AI-Assistant",
-            accentColor: "rose"
-        },
-        {
-            title: "E-commerce Engine",
-            description: "Multi-tenant digital storefront with atomic transaction handling, secure vault payments, and real-time inventory telemetry.",
-            impact: "Implemented atomic ACID transactions supporting 1,000+ daily orders with 0% data inconsistency.",
-            tags: ["React", "Express", "Stripe", "MongoDB"],
-            github: "https://github.com/amanverma1729/E-commerce-Engine",
-            link: "https://github.com/amanverma1729/E-commerce-Engine",
-            accentColor: "rose"
-        },
-        {
-            title: "ResumeGen",
-            description: "Architected a professional career artifact generator with a focus on atomic design principles and seamless data-to-PDF serialization.",
-            impact: "Streamlined PDF generation overhead by 30% through advanced data-to-blob serialization techniques.",
-            tags: ["MongoDB", "Express", "React", "Node.js"],
-            github: "https://github.com/amanverma1729/ResumeGen",
-            link: "https://github.com/amanverma1729/ResumeGen",
-            accentColor: "rose"
-        },
-        {
-            title: "Spotify Replica",
-            description: "High-performance audio streaming interface with kinetic playback controls and a fully responsive orbital layout.",
-            impact: "Delivered a pixel-perfect, zero-gravity UI with 60fps animations across all modern web viewports.",
-            tags: ["HTML", "CSS", "JavaScript", "Framer Motion"],
-            github: "https://github.com/amanverma1729/Spotify-Replica",
-            link: "https://github.com/amanverma1729/Spotify-Replica",
-            accentColor: "rose"
-        }
-    ];
 
-    const skillGroups = [
-        {
-            category: "Frontend Architecture",
-            accent: "cyan",
-            skills: [
-                { icon: <Atom size={24} />, name: "React JS" },
-                { icon: <Layout size={24} />, name: "Tailwind CSS" },
-                { icon: <Terminal size={24} />, name: "JavaScript" },
-                { icon: <Code size={24} />, name: "HTML5 / CSS3" }
-            ]
-        },
-        {
-            category: "Backend Infrastructure",
-            accent: "violet",
-            skills: [
-                { icon: <Server size={24} />, name: "Node.js / Express" },
-                { icon: <Coffee size={24} />, name: "Java / Spring" },
-                { icon: <Database size={24} />, name: "MongoDB / MySQL" },
-                { icon: <Layers size={24} />, name: "Python / AI" }
-            ]
-        },
-        {
-            category: "Systems & Logic",
-            accent: "emerald",
-            skills: [
-                { icon: <Cpu size={24} />, name: "Data Structures" },
-                { icon: <Code size={24} />, name: "OOPs Principles" },
-                { icon: <GitBranch size={22} />, name: "Git / GitHub" },
-                { icon: <Terminal size={24} />, name: "System Design" }
-            ]
-        },
-        {
-            category: "Design & UX",
-            accent: "rose",
-            skills: [
-                { icon: <Palette size={22} />, name: "UI/UX Design" },
-                { icon: <Sparkles size={22} />, name: "Framer Motion" },
-                { icon: <Ghost size={22} />, name: "Lucide Icons" },
-                { icon: <Layout size={22} />, name: "Atomic Design" }
-            ]
-        }
-    ];
 
     const education = [
         {
@@ -202,36 +114,7 @@ function App() {
                 <About />
 
                 {/* Skills Section */}
-                <Section id="skills" title="Technical Arsenal" subtitle="Payload" accentColor="emerald">
-                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 md:gap-12">
-                        {skillGroups.map((group, i) => (
-                            <motion.div
-                                key={group.category}
-                                initial={{ opacity: 0, y: 20 }}
-                                whileInView={{ opacity: 1, y: 0 }}
-                                viewport={{ once: true }}
-                                transition={{ delay: i * 0.1 }}
-                                className="relative p-12 border border-white/5 bg-white/[0.01] hover:bg-white/[0.03] transition-all duration-700 group/hud overflow-hidden"
-                            >
-                                <div className={`hud-bracket hud-bracket-tl group-hover/hud:border-neon-${group.accent} transition-colors`} />
-                                <div className={`hud-bracket hud-bracket-tr group-hover/hud:border-neon-${group.accent} transition-colors`} />
-                                <div className="hud-grid absolute inset-0 opacity-10 pointer-events-none" />
-
-                                <h4 className={`text-neon-${group.accent} font-black text-[10px] mb-12 uppercase tracking-[0.5em] opacity-40 group-hover/hud:opacity-100 dark:group-hover/hud:opacity-100 transition-opacity`}>{group.category}</h4>
-                                <div className="space-y-10 relative z-10">
-                                    {group.skills.map((skill) => (
-                                        <div key={skill.name} className="flex items-center gap-5 text-space-950/40 dark:text-white/40 hover:text-space-950 dark:hover:text-white transition-all group/skill-item">
-                                            <div className={`text-neon-${group.accent} group-hover/skill-item:scale-125 transition-all duration-500`}>
-                                                {skill.icon}
-                                            </div>
-                                            <span className="text-lg font-black tracking-tighter uppercase">{skill.name}</span>
-                                        </div>
-                                    ))}
-                                </div>
-                            </motion.div>
-                        ))}
-                    </div>
-                </Section>
+                <Skills />
 
                 {/* Education Section */}
                 <Section id="education" title="Academic Trajectory" subtitle="Deployment" accentColor="amber">
@@ -275,18 +158,7 @@ function App() {
                 </Section>
 
                 {/* Projects Section */}
-                <Section id="projects" title="Stellar Projects" subtitle="Artifacts" accentColor="rose">
-                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12">
-                        {projects.map((project, i) => (
-                            <ProjectCard
-                                key={project.title}
-                                {...project}
-                                delay={i * 0.1}
-                                accentColor="rose"
-                            />
-                        ))}
-                    </div>
-                </Section>
+                <Projects />
 
                 {/* Contact Section */}
                 <Section id="contact" title="Establish Contact" subtitle="Telemetry" accentColor="violet">
