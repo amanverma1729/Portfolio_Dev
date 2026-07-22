@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { motion, useMotionValue, useTransform } from 'framer-motion';
 import { Github, Linkedin, Mail, Code2, Download, ArrowRight, Sparkles } from 'lucide-react';
 import profile from '../assets/profile.jpg';
-import resume from '../assets/Aman_Verma_Dev.pdf';
+import Aman_Verma_Dev from '../assets/Aman_Verma_Dev.pdf';
 
 const roles = [
     "Java Full Stack Developer",
@@ -12,6 +12,17 @@ const roles = [
 ];
 
 const Hero = () => {
+    const handleResumeDownload = (e) => {
+        e.preventDefault();
+        const link = document.createElement('a');
+        link.href = Aman_Verma_Dev;
+        link.download = 'Aman_Verma_Dev.pdf';
+        link.target = '_blank';
+        link.rel = 'noopener noreferrer';
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+    };
     // Typing Effect State
     const [currentRoleIndex, setCurrentRoleIndex] = useState(0);
     const [displayedText, setDisplayedText] = useState('');
@@ -148,10 +159,12 @@ const Hero = () => {
                             transition={{ duration: 0.6, delay: 0.4 }}
                         >
                             <a
-                                href=".."
+                                href={Aman_Verma_Dev}
+                                download="Aman_Verma_Dev.pdf"
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                className="btn-primary w-full sm:w-auto text-sm sm:text-base gap-2 group"
+                                onClick={handleResumeDownload}
+                                className="btn-primary w-full sm:w-auto text-sm sm:text-base gap-2 group cursor-pointer"
                             >
                                 <Download size={18} className="group-hover:-translate-y-0.5 transition-transform" />
                                 Download Resume

@@ -143,6 +143,7 @@ const Navbar = () => {
                     {/* Resume Button */}
                     <motion.a
                         href={Aman_Verma_Dev}
+                        download="Aman_Verma_Dev.pdf"
                         target="_blank"
                         rel="noopener noreferrer"
                         className="hidden sm:inline-flex items-center gap-2 px-5 py-2.5 rounded-xl text-xs lg:text-sm font-semibold text-white bg-gradient-to-r from-[#6C4DFF] via-[#9D4EDD] to-[#00D4FF] p-[1.5px] group shadow-lg shadow-[#6C4DFF]/20 hover:shadow-[#00D4FF]/40 transition-all duration-300"
@@ -190,6 +191,7 @@ const Navbar = () => {
                             ))}
                             <a
                                 href={Aman_Verma_Dev}
+                                download="Aman_Verma_Dev.pdf"
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 className="flex items-center justify-center gap-2 mt-3 px-6 py-3.5 bg-gradient-to-r from-[#6C4DFF] to-[#00D4FF] rounded-xl text-sm font-semibold text-white shadow-lg shadow-[#6C4DFF]/30"
