@@ -68,6 +68,7 @@ function App() {
                 <Routes>
                     <Route path="/" element={<MainPortfolio />} />
                     <Route path="/certifications" element={<CertificationsPage />} />
+                    <Route path="*" element={<MainPortfolio />} />
                 </Routes>
             </div>
         </Router>

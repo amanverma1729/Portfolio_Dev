@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Menu, X, Download, Github, Sun, Moon } from 'lucide-react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import logo from '../assets/logo.png';
 import { useTheme } from '../context/ThemeContext';
 import Aman_Verma_Dev from '../assets/Aman_Verma_Dev.pdf';
@@ -11,6 +11,8 @@ const Navbar = () => {
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
     const [activeSection, setActiveSection] = useState('home');
     const { theme, toggleTheme } = useTheme();
+    const location = useLocation();
+    const navigate = useNavigate();
 
     useEffect(() => {
         const handleScroll = () => {
@@ -46,15 +48,37 @@ const Navbar = () => {
     }, []);
 
     const navLinks = [
-        { name: 'Home', href: '/#home', id: 'home' },
-        { name: 'About', href: '/#about', id: 'about' },
-        { name: 'Skills', href: '/#skills', id: 'skills' },
-        { name: 'Experience', href: '/#experience', id: 'experience' },
+        { name: 'Home', href: '#home', id: 'home' },
+        { name: 'About', href: '#about', id: 'about' },
+        { name: 'Skills', href: '#skills', id: 'skills' },
+        { name: 'Experience', href: '#experience', id: 'experience' },
         { name: 'Certifications', href: '/certifications', id: 'certifications', isRoute: true },
-        { name: 'Projects', href: '/#projects', id: 'projects' },
+        { name: 'Projects', href: '#projects', id: 'projects' },
         { name: 'GitHub', href: 'https://github.com/amanverma1729', isExternal: true },
-        { name: 'Contact', href: '/#contact', id: 'contact' },
+        { name: 'Contact', href: '#contact', id: 'contact' },
     ];
+
+    const handleNavClick = (e, link) => {
+        if (link.isExternal || link.isRoute) return;
+        
+        e.preventDefault();
+        setMobileMenuOpen(false);
+
+        if (location.pathname !== '/') {
+            navigate('/');
+            setTimeout(() => {
+                const el = document.getElementById(link.id);
+                if (el) {
+                    el.scrollIntoView({ behavior: 'smooth' });
+                }
+            }, 150);
+        } else {
+            const el = document.getElementById(link.id);
+            if (el) {
+                el.scrollIntoView({ behavior: 'smooth' });
+            }
+        }
+    };
 
     return (
         <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${scrolled ? 'py-3.5 bg-[#080812]/80 backdrop-blur-xl border-b border-[#6C4DFF]/20 shadow-xl shadow-[#080812]/50' : 'py-5 bg-transparent'}`}>
@@ -66,7 +90,12 @@ const Navbar = () => {
                     initial={{ opacity: 0, x: -20 }}
                     animate={{ opacity: 1, x: 0 }}
                     whileHover={{ scale: 1.03 }}
-                    onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+                    onClick={() => {
+                        if (location.pathname !== '/') {
+                            navigate('/');
+                        }
+                        window.scrollTo({ top: 0, behavior: 'smooth' });
+                    }}
                 >
                     <div className="w-9 h-9 md:w-10 md:h-10 rounded-xl bg-gradient-to-tr from-[#6C4DFF] via-[#9D4EDD] to-[#00D4FF] p-[2px] shadow-lg shadow-[#6C4DFF]/30">
                         <div className="w-full h-full bg-[#080812] rounded-[10px] flex items-center justify-center overflow-hidden">
@@ -112,6 +141,7 @@ const Navbar = () => {
                             <a
                                 key={link.name}
                                 href={link.href}
+                                onClick={(e) => handleNavClick(e, link)}
                                 className={`px-3.5 py-1.5 text-xs lg:text-sm font-medium transition-all relative rounded-full ${activeSection === link.id ? 'text-white font-semibold' : 'text-gray-400 hover:text-white'}`}
                             >
                                 {link.name}
@@ -207,10 +237,10 @@ const Navbar = () => {
                                     <a
                                         key={link.name}
                                         href={link.href}
+                                        onClick={(e) => handleNavClick(e, link)}
                                         target={link.isExternal ? "_blank" : "_self"}
                                         rel={link.isExternal ? "noopener noreferrer" : ""}
                                         className={`py-2.5 px-4 rounded-xl text-base font-medium transition-all ${activeSection === link.id ? 'bg-[#6C4DFF]/20 text-[#00D4FF] border border-[#6C4DFF]/40' : 'text-gray-300 hover:text-white hover:bg-white/5'}`}
-                                        onClick={() => setMobileMenuOpen(false)}
                                     >
                                         {link.name}
                                     </a>
