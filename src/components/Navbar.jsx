@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Menu, X, Download, Github, Sun, Moon } from 'lucide-react';
+import { Link } from 'react-router-dom';
 import logo from '../assets/logo.png';
 import { useTheme } from '../context/ThemeContext';
 import Aman_Verma_Dev from '../assets/Aman_Verma_Dev.pdf';
@@ -45,14 +46,14 @@ const Navbar = () => {
     }, []);
 
     const navLinks = [
-        { name: 'Home', href: '#home', id: 'home' },
-        { name: 'About', href: '#about', id: 'about' },
-        { name: 'Skills', href: '#skills', id: 'skills' },
-        { name: 'Experience', href: '#experience', id: 'experience' },
-        { name: 'Certifications', href: '#certifications', id: 'certifications' },
-        { name: 'Projects', href: '#projects', id: 'projects' },
+        { name: 'Home', href: '/#home', id: 'home' },
+        { name: 'About', href: '/#about', id: 'about' },
+        { name: 'Skills', href: '/#skills', id: 'skills' },
+        { name: 'Experience', href: '/#experience', id: 'experience' },
+        { name: 'Certifications', href: '/certifications', id: 'certifications', isRoute: true },
+        { name: 'Projects', href: '/#projects', id: 'projects' },
         { name: 'GitHub', href: 'https://github.com/amanverma1729', isExternal: true },
-        { name: 'Contact', href: '#contact', id: 'contact' },
+        { name: 'Contact', href: '/#contact', id: 'contact' },
     ];
 
     return (
@@ -92,6 +93,21 @@ const Navbar = () => {
                                 <Github size={14} />
                                 {link.name}
                             </a>
+                        ) : link.isRoute ? (
+                            <Link
+                                key={link.name}
+                                to={link.href}
+                                className={`px-3.5 py-1.5 text-xs lg:text-sm font-medium transition-all relative rounded-full ${activeSection === link.id ? 'text-white font-semibold' : 'text-gray-400 hover:text-white'}`}
+                            >
+                                {link.name}
+                                {activeSection === link.id && (
+                                    <motion.div
+                                        layoutId="activeNavBg"
+                                        className="absolute inset-0 rounded-full bg-gradient-to-r from-[#6C4DFF]/30 to-[#00D4FF]/20 border border-[#6C4DFF]/50 -z-10"
+                                        transition={{ type: "spring", stiffness: 380, damping: 30 }}
+                                    />
+                                )}
+                            </Link>
                         ) : (
                             <a
                                 key={link.name}
@@ -178,16 +194,27 @@ const Navbar = () => {
                     >
                         <div className="flex flex-col p-6 gap-3">
                             {navLinks.map((link) => (
-                                <a
-                                    key={link.name}
-                                    href={link.href}
-                                    target={link.isExternal ? "_blank" : "_self"}
-                                    rel={link.isExternal ? "noopener noreferrer" : ""}
-                                    className={`py-2.5 px-4 rounded-xl text-base font-medium transition-all ${activeSection === link.id ? 'bg-[#6C4DFF]/20 text-[#00D4FF] border border-[#6C4DFF]/40' : 'text-gray-300 hover:text-white hover:bg-white/5'}`}
-                                    onClick={() => setMobileMenuOpen(false)}
-                                >
-                                    {link.name}
-                                </a>
+                                link.isRoute ? (
+                                    <Link
+                                        key={link.name}
+                                        to={link.href}
+                                        className={`py-2.5 px-4 rounded-xl text-base font-medium transition-all ${activeSection === link.id ? 'bg-[#6C4DFF]/20 text-[#00D4FF] border border-[#6C4DFF]/40' : 'text-gray-300 hover:text-white hover:bg-white/5'}`}
+                                        onClick={() => setMobileMenuOpen(false)}
+                                    >
+                                        {link.name}
+                                    </Link>
+                                ) : (
+                                    <a
+                                        key={link.name}
+                                        href={link.href}
+                                        target={link.isExternal ? "_blank" : "_self"}
+                                        rel={link.isExternal ? "noopener noreferrer" : ""}
+                                        className={`py-2.5 px-4 rounded-xl text-base font-medium transition-all ${activeSection === link.id ? 'bg-[#6C4DFF]/20 text-[#00D4FF] border border-[#6C4DFF]/40' : 'text-gray-300 hover:text-white hover:bg-white/5'}`}
+                                        onClick={() => setMobileMenuOpen(false)}
+                                    >
+                                        {link.name}
+                                    </a>
+                                )
                             ))}
                             <a
                                 href={Aman_Verma_Dev}
