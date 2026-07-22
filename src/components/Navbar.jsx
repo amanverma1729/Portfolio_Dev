@@ -3,6 +3,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { Menu, X, Download, Github, Sun, Moon } from 'lucide-react';
 import logo from '../assets/logo.png';
 import { useTheme } from '../context/ThemeContext';
+import Aman_Verma_Dev from '../assets/Aman_Verma_Dev.pdf';
 
 const Navbar = () => {
     const [scrolled, setScrolled] = useState(false);
@@ -57,7 +58,7 @@ const Navbar = () => {
     return (
         <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${scrolled ? 'py-3.5 bg-[#080812]/80 backdrop-blur-xl border-b border-[#6C4DFF]/20 shadow-xl shadow-[#080812]/50' : 'py-5 bg-transparent'}`}>
             <div className="max-w-7xl mx-auto px-4 sm:px-6 flex justify-between items-center w-full">
-                
+
                 {/* Logo - Left */}
                 <motion.div
                     className="flex items-center gap-3 font-bold text-xl cursor-pointer shrink-0"
@@ -112,7 +113,7 @@ const Navbar = () => {
 
                 {/* Theme Toggle & Resume Button - Right */}
                 <div className="flex items-center gap-3 shrink-0">
-                    
+
                     {/* Theme Toggle Button */}
                     <motion.button
                         onClick={toggleTheme}
@@ -141,7 +142,7 @@ const Navbar = () => {
 
                     {/* Resume Button */}
                     <motion.a
-                        href="https://a-manverma.github.io/Portfolio/resume.pdf"
+                        href={Aman_Verma_Dev}
                         target="_blank"
                         rel="noopener noreferrer"
                         className="hidden sm:inline-flex items-center gap-2 px-5 py-2.5 rounded-xl text-xs lg:text-sm font-semibold text-white bg-gradient-to-r from-[#6C4DFF] via-[#9D4EDD] to-[#00D4FF] p-[1.5px] group shadow-lg shadow-[#6C4DFF]/20 hover:shadow-[#00D4FF]/40 transition-all duration-300"
@@ -188,7 +189,7 @@ const Navbar = () => {
                                 </a>
                             ))}
                             <a
-                                href="https://a-manverma.github.io/Portfolio/resume.pdf"
+                                href={Aman_Verma_Dev}
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 className="flex items-center justify-center gap-2 mt-3 px-6 py-3.5 bg-gradient-to-r from-[#6C4DFF] to-[#00D4FF] rounded-xl text-sm font-semibold text-white shadow-lg shadow-[#6C4DFF]/30"

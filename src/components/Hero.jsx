@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { motion, useMotionValue, useTransform } from 'framer-motion';
 import { Github, Linkedin, Mail, Code2, Download, ArrowRight, Sparkles } from 'lucide-react';
 import profile from '../assets/profile.jpg';
+import resume from '../assets/Aman_Verma_Dev.pdf';
 
 const roles = [
     "Java Full Stack Developer",
@@ -147,7 +148,7 @@ const Hero = () => {
                             transition={{ duration: 0.6, delay: 0.4 }}
                         >
                             <a
-                                href="https://a-manverma.github.io/Portfolio/resume.pdf"
+                                href=".."
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 className="btn-primary w-full sm:w-auto text-sm sm:text-base gap-2 group"
