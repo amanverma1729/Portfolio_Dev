@@ -7,15 +7,15 @@ const MissionLoading = ({ onComplete }) => {
     const [logs, setLogs] = useState([]);
 
     const loadingMessages = [
-        { icon: <Cpu size={14} />, text: "INITIALIZING CORE SYSTEMS..." },
-        { icon: <Wifi size={14} />, text: "ESTABLISHING SECURE PROTOCOLS..." },
-        { icon: <ShieldCheck size={14} />, text: "CALIBRATING INTERFACE..." },
-        { icon: <Rocket size={14} />, text: "PREPARING FOR SYSTEM ACCESS..." },
+        { icon: <Cpu size={14} />, text: "INITIALIZING JAVA FULL STACK ENGINE..." },
+        { icon: <Wifi size={14} />, text: "CONNECTING API & DATABASE NODES..." },
+        { icon: <ShieldCheck size={14} />, text: "CALIBRATING HIGH-PERFORMANCE UI..." },
+        { icon: <Rocket size={14} />, text: "LAUNCHING AMAN VERMA'S PORTFOLIO..." },
     ];
 
     useEffect(() => {
-        const totalDuration = 3000;
-        const interval = 30;
+        const totalDuration = 1800;
+        const interval = 25;
         const step = 100 / (totalDuration / interval);
 
         const timer = setInterval(() => {
@@ -23,20 +23,19 @@ const MissionLoading = ({ onComplete }) => {
                 const next = prev + step;
                 if (next >= 100) {
                     clearInterval(timer);
-                    setTimeout(onComplete, 500);
+                    setTimeout(onComplete, 300);
                     return 100;
                 }
                 return next;
             });
         }, interval);
 
-        // Message logging effect
         const messageInterval = setInterval(() => {
             setLogs(prev => {
                 const nextMsg = loadingMessages[prev.length % loadingMessages.length];
                 return [...prev, nextMsg].slice(-4);
             });
-        }, 700);
+        }, 450);
 
         return () => {
             clearInterval(timer);
@@ -46,58 +45,56 @@ const MissionLoading = ({ onComplete }) => {
 
     return (
         <motion.div
-            className="fixed inset-0 z-[10000] bg-space-950 flex flex-col items-center justify-center p-6"
-            exit={{ opacity: 0, scale: 1.1 }}
-            transition={{ duration: 0.8, ease: [0.43, 0.13, 0.23, 0.96] }}
+            className="fixed inset-0 z-[10000] bg-[#080812] flex flex-col items-center justify-center p-6"
+            exit={{ opacity: 0, scale: 1.05 }}
+            transition={{ duration: 0.6, ease: "easeInOut" }}
         >
-            <div className="max-w-sm w-full space-y-12">
+            <div className="max-w-sm w-full space-y-10">
                 {/* Animated Logo */}
                 <motion.div
                     className="relative flex justify-center"
-                    animate={{ scale: [1, 1.1, 1] }}
-                    transition={{ duration: 2, repeat: Infinity }}
+                    animate={{ scale: [1, 1.08, 1] }}
+                    transition={{ duration: 1.8, repeat: Infinity }}
                 >
-                    <div className="w-24 h-24 rounded-full glass-card flex items-center justify-center text-neon-cyan neon-glow-cyan border-neon-cyan/50">
-                        <Rocket size={48} />
+                    <div className="w-20 h-20 rounded-2xl bg-gradient-to-tr from-[#6C4DFF] via-[#9D4EDD] to-[#00D4FF] p-[2px] shadow-2xl shadow-[#6C4DFF]/50">
+                        <div className="w-full h-full bg-[#080812] rounded-[14px] flex items-center justify-center text-[#00D4FF]">
+                            <Rocket size={38} />
+                        </div>
                     </div>
-                    <div className="absolute inset-0 border-2 border-neon-violet/30 rounded-full animate-ping" />
                 </motion.div>
 
                 {/* Progress Bar */}
-                <div className="space-y-4">
-                    <div className="flex justify-between items-end text-[10px] font-black uppercase tracking-[0.4em] text-white/40">
-                        <span>Systems Status</span>
-                        <span className="text-neon-cyan">{Math.round(percent)}%</span>
+                <div className="space-y-3">
+                    <div className="flex justify-between items-end text-[11px] font-mono font-bold uppercase tracking-widest text-gray-300">
+                        <span>SYSTEM INITIALIZING</span>
+                        <span className="text-[#00D4FF] font-extrabold">{Math.round(percent)}%</span>
                     </div>
-                    <div className="h-1.5 w-full bg-white/5 rounded-full overflow-hidden border border-white/5">
+                    <div className="h-2 w-full bg-[#120E26] rounded-full overflow-hidden border border-[#6C4DFF]/30 p-[1px]">
                         <motion.div
-                            className="h-full bg-gradient-to-r from-neon-cyan to-neon-violet"
+                            className="h-full bg-gradient-to-r from-[#6C4DFF] via-[#9D4EDD] to-[#00D4FF] rounded-full"
                             style={{ width: `${percent}%` }}
                         />
                     </div>
                 </div>
 
-                {/* Binary/Log Feed */}
-                <div className="space-y-3 h-24 overflow-hidden">
+                {/* Log Feed */}
+                <div className="space-y-2 h-20 overflow-hidden font-mono">
                     <AnimatePresence mode="popLayout">
                         {logs.map((log, i) => (
                             <motion.div
                                 key={i}
                                 initial={{ opacity: 0, x: -10 }}
-                                animate={{ opacity: 0.7, x: 0 }}
+                                animate={{ opacity: 0.9, x: 0 }}
                                 exit={{ opacity: 0, y: -10 }}
-                                className="flex items-center gap-3 text-neon-cyan font-black text-[9px] uppercase tracking-widest"
+                                className="flex items-center gap-2.5 text-[#00D4FF] text-[10px] uppercase font-semibold tracking-wider"
                             >
-                                <span className="text-neon-violet">{log.icon}</span>
+                                <span className="text-[#9D4EDD]">{log.icon}</span>
                                 <span>{log.text}</span>
                             </motion.div>
                         ))}
                     </AnimatePresence>
                 </div>
             </div>
-
-            {/* Background Grid Accent */}
-            <div className="absolute inset-0 opacity-10 pointer-events-none bg-[radial-gradient(#22d3ee_1px,transparent_1px)] [background-size:40px_40px]" />
         </motion.div>
     );
 };
