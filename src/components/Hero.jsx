@@ -260,7 +260,7 @@ const Hero = () => {
                                 className="absolute -bottom-2 -left-2 z-30 px-4 py-2 rounded-2xl bg-[#120E26]/90 border border-[#6C4DFF]/40 backdrop-blur-xl shadow-xl flex items-center gap-2"
                             >
                                 <Sparkles size={16} className="text-[#00D4FF]" />
-                                <span className="text-xs font-semibold text-white">Full Stack Java</span>
+                                <span className="text-xs font-semibold text-white">Java Developer</span>
                             </motion.div>
                         </motion.div>
                     </div>

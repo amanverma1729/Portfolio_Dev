@@ -1,9 +1,10 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { ExternalLink, Github, CheckCircle2, Layers } from 'lucide-react';
+import { ExternalLink, Github, CheckCircle2 } from 'lucide-react';
 
 const ProjectCard = ({
     title,
+    image,
     description,
     features = [],
     tags = [],
@@ -21,17 +22,29 @@ const ProjectCard = ({
             transition={{ duration: 0.5, delay }}
             className="glass-card glass-card-hover rounded-3xl overflow-hidden flex flex-col h-full border border-[#6C4DFF]/20 group relative"
         >
-            {/* Project Image Header / Banner Visual */}
-            <div className={`h-48 w-full bg-gradient-to-br ${gradient} relative overflow-hidden flex items-center justify-center p-6`}>
-                {/* Dark Vignette Overlay */}
-                <div className="absolute inset-0 bg-gradient-to-t from-[#080812] via-[#080812]/40 to-transparent z-10" />
-                
-                {/* Decorative Icon Visual */}
-                <div className="relative z-0 opacity-20 transform group-hover:scale-110 group-hover:rotate-6 transition-transform duration-700">
-                    <Layers size={90} className="text-white" />
-                </div>
+            {/* Project Image Header */}
+            <div className="h-48 w-full relative overflow-hidden bg-[#080812]">
 
-                {/* Badge Category Tag Overlay */}
+                {image ? (
+                    <img
+                        src={image}
+                        alt={`${title} preview`}
+                        className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                    />
+                ) : (
+                    <div
+                        className={`w-full h-full bg-gradient-to-br ${gradient} flex items-center justify-center`}
+                    >
+                        <div className="text-white text-6xl opacity-20">
+                            ✦
+                        </div>
+                    </div>
+                )}
+
+                {/* Dark Vignette Overlay */}
+                <div className="absolute inset-0 bg-gradient-to-t from-[#080812] via-[#080812]/20 to-transparent z-10" />
+
+                {/* Featured Badge */}
                 <div className="absolute top-4 right-4 z-20">
                     <span className="px-3 py-1 bg-[#080812]/80 backdrop-blur-md rounded-full text-xs font-mono font-bold text-[#00D4FF] border border-[#00D4FF]/40 shadow-lg">
                         Featured
@@ -41,10 +54,11 @@ const ProjectCard = ({
 
             {/* Content Body */}
             <div className="p-6 sm:p-7 flex flex-col flex-1 relative z-20">
+
                 <h3 className="text-xl sm:text-2xl font-bold text-white mb-2 group-hover:text-[#00D4FF] transition-colors tracking-tight">
                     {title}
                 </h3>
-                
+
                 <p className="text-xs sm:text-sm text-gray-300 leading-relaxed mb-5">
                     {description}
                 </p>
@@ -52,12 +66,25 @@ const ProjectCard = ({
                 {/* Features List */}
                 {features.length > 0 && (
                     <div className="mb-5 space-y-1.5 bg-[#080812]/50 p-3.5 rounded-xl border border-white/5">
-                        <span className="text-[11px] font-mono text-gray-400 block font-semibold mb-1 uppercase tracking-wider">Key Features:</span>
+
+                        <span className="text-[11px] font-mono text-gray-400 block font-semibold mb-1 uppercase tracking-wider">
+                            Key Features:
+                        </span>
+
                         <div className="grid grid-cols-1 sm:grid-cols-2 gap-1.5">
                             {features.map((feature, idx) => (
-                                <div key={idx} className="flex items-center gap-1.5 text-xs text-gray-200">
-                                    <CheckCircle2 size={13} className="text-[#00D4FF] shrink-0" />
-                                    <span className="truncate">{feature}</span>
+                                <div
+                                    key={idx}
+                                    className="flex items-center gap-1.5 text-xs text-gray-200"
+                                >
+                                    <CheckCircle2
+                                        size={13}
+                                        className="text-[#00D4FF] shrink-0"
+                                    />
+
+                                    <span className="truncate">
+                                        {feature}
+                                    </span>
                                 </div>
                             ))}
                         </div>
@@ -66,18 +93,21 @@ const ProjectCard = ({
 
                 {/* Tech Stack Tags */}
                 <div className="flex flex-wrap gap-1.5 mb-6 mt-auto">
+
                     {tags.map(tag => (
-                        <span 
-                            key={tag} 
+                        <span
+                            key={tag}
                             className="px-2.5 py-1 bg-[#120E26] rounded-lg text-[11px] font-mono font-medium text-gray-300 border border-[#6C4DFF]/25"
                         >
                             {tag}
                         </span>
                     ))}
+
                 </div>
 
                 {/* Action Buttons */}
                 <div className="flex items-center gap-3 pt-4 border-t border-white/10 mt-auto">
+
                     {github && (
                         <a
                             href={github}
@@ -89,6 +119,7 @@ const ProjectCard = ({
                             <span>GitHub</span>
                         </a>
                     )}
+
                     {link && (
                         <a
                             href={link}
@@ -100,6 +131,7 @@ const ProjectCard = ({
                             <span>Live Demo</span>
                         </a>
                     )}
+
                 </div>
             </div>
         </motion.div>

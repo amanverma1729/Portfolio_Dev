@@ -58,7 +58,7 @@ const Contact = () => {
         {
             icon: <MapPin size={22} className="text-[#6C4DFF]" />,
             title: "Location",
-            value: "Ghaziabad, Uttar Pradesh, India",
+            value: "New Delhi, India",
             link: "#",
             gradient: "from-[#6C4DFF]/20 to-[#00D4FF]/20"
         }
@@ -67,7 +67,7 @@ const Contact = () => {
     return (
         <section id="contact" className="py-24 px-4 sm:px-6 relative z-10">
             <div className="max-w-7xl mx-auto flex flex-col items-center">
-                
+
                 {/* Section Header */}
                 <motion.div
                     initial={{ opacity: 0, y: 20 }}
@@ -85,9 +85,9 @@ const Contact = () => {
                 </motion.div>
 
                 <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 w-full">
-                    
+
                     {/* Left Column: Form */}
-                    <motion.div 
+                    <motion.div
                         initial={{ opacity: 0, x: -30 }}
                         whileInView={{ opacity: 1, x: 0 }}
                         viewport={{ once: true }}
@@ -96,7 +96,7 @@ const Contact = () => {
                     >
                         <h3 className="text-2xl font-bold text-white mb-2">Send a Message</h3>
                         <p className="text-xs sm:text-sm text-gray-300 mb-6">Have a project idea, question, or job opportunity? Send me a message below!</p>
-                        
+
                         <AnimatePresence mode="wait">
                             {formStatus === 'success' ? (
                                 <motion.div
@@ -176,7 +176,7 @@ const Contact = () => {
                                             className="w-full bg-[#080812]/80 border border-[#6C4DFF]/30 rounded-xl px-4 py-3 outline-none focus:border-[#00D4FF] focus:ring-1 focus:ring-[#00D4FF] transition-all text-white placeholder:text-gray-500 text-sm resize-none"
                                         ></textarea>
                                     </div>
-                                    
+
                                     <button
                                         disabled={formStatus === 'sending'}
                                         type="submit"
@@ -197,7 +197,7 @@ const Contact = () => {
                     </motion.div>
 
                     {/* Right Column: Cards & Map */}
-                    <motion.div 
+                    <motion.div
                         initial={{ opacity: 0, x: 30 }}
                         whileInView={{ opacity: 1, x: 0 }}
                         viewport={{ once: true }}
@@ -205,10 +205,10 @@ const Contact = () => {
                         className="lg:col-span-5 flex flex-col gap-4"
                     >
                         <h3 className="text-2xl font-bold text-white mb-2">Contact Information</h3>
-                        
+
                         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-1 gap-3.5">
                             {contactInfo.map((info, index) => (
-                                <a 
+                                <a
                                     key={index}
                                     href={info.link}
                                     target={info.link.startsWith("http") ? "_blank" : "_self"}
@@ -226,17 +226,17 @@ const Contact = () => {
                             ))}
                         </div>
 
-                        {/* Location Visual */}
+                        {/* Location Visual
                         <div className="flex-1 glass-card rounded-2xl p-5 border border-[#6C4DFF]/20 flex flex-col justify-center min-h-[160px] relative overflow-hidden group">
                             <div className="relative z-10">
                                 <span className="text-xs font-mono text-[#00D4FF] font-semibold uppercase tracking-wider block mb-1">LOCATION</span>
-                                <h4 className="text-lg font-bold text-white">Ghaziabad, Uttar Pradesh</h4>
+                                <h4 className="text-lg font-bold text-white">New Delhi</h4>
                                 <p className="text-xs text-gray-300">India</p>
                             </div>
                             <div className="absolute right-4 bottom-4 opacity-10 group-hover:opacity-20 transition-opacity">
                                 <MapPin size={80} className="text-[#6C4DFF]" />
                             </div>
-                        </div>
+                        </div> */}
                     </motion.div>
                 </div>
             </div>
