@@ -1,17 +1,16 @@
-import React, { useState, useEffect } from 'react';
-import { motion, useMotionValue, useTransform } from 'framer-motion';
-import { Github, Linkedin, Mail, Code2, Download, ArrowRight, Sparkles } from 'lucide-react';
+import React, { useState } from 'react';
+import { Github, Linkedin, Mail, Code2, Download, ArrowDownRight, Terminal } from 'lucide-react';
 import profile from '../assets/profile.jpg';
 import Aman_Verma_Dev from '../assets/Aman_Verma_Dev.pdf';
 
-const roles = [
-    "Java Full Stack Developer",
-    "Software Engineer",
-    "React Developer",
-    "AI Enthusiast"
+const tabs = [
+    { id: 'overview', label: 'overview.json' },
+    { id: 'stack', label: 'stack.txt' },
 ];
 
 const Hero = () => {
+    const [activeTab, setActiveTab] = useState('overview');
+
     const handleResumeDownload = (e) => {
         e.preventDefault();
         const link = document.createElement('a');
@@ -23,247 +22,180 @@ const Hero = () => {
         link.click();
         document.body.removeChild(link);
     };
-    // Typing Effect State
-    const [currentRoleIndex, setCurrentRoleIndex] = useState(0);
-    const [displayedText, setDisplayedText] = useState('');
-    const [isDeleting, setIsDeleting] = useState(false);
 
-    useEffect(() => {
-        const currentRole = roles[currentRoleIndex];
-        let timer;
-
-        if (!isDeleting && displayedText.length < currentRole.length) {
-            timer = setTimeout(() => {
-                setDisplayedText(currentRole.substring(0, displayedText.length + 1));
-            }, 80);
-        } else if (!isDeleting && displayedText.length === currentRole.length) {
-            timer = setTimeout(() => {
-                setIsDeleting(true);
-            }, 2000);
-        } else if (isDeleting && displayedText.length > 0) {
-            timer = setTimeout(() => {
-                setDisplayedText(currentRole.substring(0, displayedText.length - 1));
-            }, 40);
-        } else if (isDeleting && displayedText.length === 0) {
-            setIsDeleting(false);
-            setCurrentRoleIndex((prev) => (prev + 1) % roles.length);
-        }
-
-        return () => clearTimeout(timer);
-    }, [displayedText, isDeleting, currentRoleIndex]);
-
-    // Mouse Parallax Effect
-    const mouseX = useMotionValue(0);
-    const mouseY = useMotionValue(0);
-
-    const x1 = useTransform(mouseX, [-500, 500], [-25, 25]);
-    const y1 = useTransform(mouseY, [-500, 500], [-25, 25]);
-
-    const x2 = useTransform(mouseX, [-500, 500], [35, -35]);
-    const y2 = useTransform(mouseY, [-500, 500], [35, -35]);
-
-    useEffect(() => {
-        const handleMouseMove = (e) => {
-            mouseX.set(e.clientX - window.innerWidth / 2);
-            mouseY.set(e.clientY - window.innerHeight / 2);
-        };
-        window.addEventListener('mousemove', handleMouseMove);
-        return () => window.removeEventListener('mousemove', handleMouseMove);
-    }, [mouseX, mouseY]);
+    const socialLinks = [
+        {
+            name: 'GitHub',
+            href: 'https://github.com/amanverma1729',
+            icon: <Github size={15} />,
+        },
+        {
+            name: 'LinkedIn',
+            href: 'https://www.linkedin.com/in/amanverma1729/',
+            icon: <Linkedin size={15} />,
+        },
+        {
+            name: 'LeetCode',
+            href: 'https://leetcode.com/u/amanverma1729_/',
+            icon: <Code2 size={15} />,
+        },
+        {
+            name: 'Email',
+            href: 'mailto:aman835400@gmail.com',
+            icon: <Mail size={15} />,
+        },
+    ];
 
     return (
-        <section id="home" className="min-h-[92vh] flex flex-col justify-center items-center px-4 sm:px-6 relative pt-28 pb-16 overflow-hidden">
-            {/* Ambient Lighting Orbs */}
-            <motion.div style={{ x: x1, y: y1 }} className="absolute top-1/4 right-1/3 w-72 h-72 sm:w-96 sm:h-96 bg-[#6C4DFF] rounded-full blur-[130px] opacity-25 pointer-events-none" />
-            <motion.div style={{ x: x2, y: y2 }} className="absolute bottom-1/4 right-1/4 w-80 h-80 sm:w-[450px] sm:h-[450px] bg-[#9D4EDD] rounded-full blur-[150px] opacity-20 pointer-events-none" />
-            <div className="absolute top-1/3 left-10 w-64 h-64 bg-[#00D4FF] rounded-full blur-[120px] opacity-15 pointer-events-none" />
+        <section id="home" className="pt-28 pb-20 sm:pt-36 sm:pb-24 px-4 sm:px-6 border-b border-zinc-200 dark:border-zinc-800/80">
+            <div className="max-w-5xl mx-auto">
+                <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-start">
 
-            {/* Floating 3D/Abstract Shapes */}
-            <motion.div
-                animate={{ y: [0, -18, 0], rotate: [0, 15, 0] }}
-                transition={{ duration: 7, repeat: Infinity, ease: "easeInOut" }}
-                className="hidden lg:block absolute top-1/4 right-[12%] w-16 h-16 rounded-2xl bg-gradient-to-br from-[#6C4DFF]/30 to-[#00D4FF]/30 border border-white/10 backdrop-blur-xl shadow-2xl shadow-[#6C4DFF]/20"
-                style={{ transformStyle: 'preserve-3d', transform: 'rotateX(30deg) rotateY(30deg)' }}
-            />
-            <motion.div
-                animate={{ y: [0, 25, 0], rotate: [0, -20, 0] }}
-                transition={{ duration: 9, repeat: Infinity, ease: "easeInOut", delay: 1 }}
-                className="hidden lg:block absolute bottom-1/3 right-[4%] w-20 h-20 rounded-full bg-gradient-to-tr from-[#9D4EDD]/40 to-[#00D4FF]/20 border border-white/10 backdrop-blur-md"
-            />
-            <motion.div
-                animate={{ y: [0, -15, 0], rotate: [0, 45, 0] }}
-                transition={{ duration: 6, repeat: Infinity, ease: "easeInOut", delay: 2 }}
-                className="hidden md:block absolute top-1/3 left-[6%] w-12 h-12 rounded-xl bg-gradient-to-tr from-[#00D4FF]/25 to-[#6C4DFF]/25 border border-white/10 backdrop-blur-md rotate-12"
-            />
+                    {/* Left Column: Core Intro */}
+                    <div className="lg:col-span-7 flex flex-col">
+                        <div className="inline-flex items-center gap-2 font-mono text-xs text-zinc-600 dark:text-zinc-400 mb-5">
+                            <span className="h-2 w-2 rounded-full bg-emerald-500" />
+                            <span>Available for Java Full Stack / SDE roles</span>
+                            <span className="text-zinc-400 dark:text-zinc-600">·</span>
+                            <span>New Delhi, IN</span>
+                        </div>
 
-            <div className="max-w-7xl mx-auto relative z-10 flex flex-col w-full">
-                <div className="flex flex-col-reverse lg:flex-row items-center justify-between gap-12 lg:gap-12 w-full">
+                        <h1 className="text-4xl sm:text-5xl font-bold tracking-tight text-zinc-900 dark:text-zinc-50 mb-4">
+                            Aman Verma
+                        </h1>
 
-                    {/* LEFT COLUMN: Hero Content */}
-                    <div className="flex flex-col items-center lg:items-start flex-1 w-full text-center lg:text-left z-10">
+                        <p className="text-lg sm:text-xl text-zinc-700 dark:text-zinc-300 font-medium leading-snug mb-5">
+                            Java Full Stack Developer building reliable backends and clean React interfaces.
+                        </p>
 
-                        {/* Status Badge */}
-                        <motion.div
-                            initial={{ opacity: 0, y: 20 }}
-                            animate={{ opacity: 1, y: 0 }}
-                            transition={{ duration: 0.6 }}
-                            className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-[#6C4DFF]/30 bg-[#120E26]/80 backdrop-blur-md mb-6 shadow-lg shadow-[#6C4DFF]/10"
-                        >
-                            <span className="relative flex h-2.5 w-2.5">
-                                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#00D4FF] opacity-75"></span>
-                                <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-[#00D4FF]"></span>
-                            </span>
-                            <span className="text-xs font-mono text-[#00D4FF] tracking-wide font-medium">Available for Opportunities</span>
-                        </motion.div>
+                        <p className="text-sm sm:text-base text-zinc-600 dark:text-zinc-400 leading-relaxed max-w-xl mb-8">
+                            Computer Science graduate (B.Tech 2026) focused on{' '}
+                            <span className="text-zinc-900 dark:text-zinc-200 font-medium">Java, Spring Boot, Spring Security, React, and MySQL</span>.
+                            I care about clean REST API design, transactional data integrity, and fast, maintainable frontend code.
+                        </p>
 
-                        {/* Title */}
-                        <motion.h1
-                            className="text-fluid-h1 font-extrabold tracking-tight mb-4 text-white leading-tight"
-                            initial={{ opacity: 0, y: 20 }}
-                            animate={{ opacity: 1, y: 0 }}
-                            transition={{ duration: 0.6, delay: 0.1 }}
-                        >
-                            Hi, I'm <br />
-                            <span className="bg-clip-text text-transparent bg-gradient-to-r from-[#6C4DFF] via-[#9D4EDD] to-[#00D4FF]">
-                                Aman Verma
-                            </span>
-                        </motion.h1>
-
-                        {/* Typing Animation Subtitle */}
-                        <motion.div
-                            className="h-10 sm:h-12 flex items-center mb-6 text-xl sm:text-2xl md:text-3xl font-bold font-mono text-gray-200"
-                            initial={{ opacity: 0, y: 20 }}
-                            animate={{ opacity: 1, y: 0 }}
-                            transition={{ duration: 0.6, delay: 0.2 }}
-                        >
-                            <span className="text-[#00D4FF] mr-2">&gt;</span>
-                            <span className="text-white">{displayedText}</span>
-                            <span className="animate-pulse text-[#6C4DFF] ml-1">|</span>
-                        </motion.div>
-
-                        {/* Tagline & Short Bio */}
-                        <motion.p
-                            className="text-fluid-p text-gray-300 mb-8 max-w-xl leading-relaxed font-normal"
-                            initial={{ opacity: 0, y: 20 }}
-                            animate={{ opacity: 1, y: 0 }}
-                            transition={{ duration: 0.6, delay: 0.3 }}
-                        >
-                            Building scalable full-stack applications using <span className="text-white font-semibold">Java, Spring Boot, React and SQL</span>. Passionate Computer Science graduate dedicated to clean architecture and exceptional web experiences.
-                        </motion.p>
-
-                        {/* Call to Action Buttons */}
-                        <motion.div
-                            className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 w-full sm:w-auto mb-10"
-                            initial={{ opacity: 0, y: 20 }}
-                            animate={{ opacity: 1, y: 0 }}
-                            transition={{ duration: 0.6, delay: 0.4 }}
-                        >
+                        {/* Actions */}
+                        <div className="flex flex-wrap items-center gap-3 mb-8">
                             <a
                                 href={Aman_Verma_Dev}
                                 download="Aman_Verma_Dev.pdf"
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 onClick={handleResumeDownload}
-                                className="btn-primary w-full sm:w-auto text-sm sm:text-base gap-2 group cursor-pointer"
+                                className="inline-flex items-center gap-2 px-4 py-2.5 rounded-md bg-zinc-900 dark:bg-emerald-500 text-white dark:text-zinc-950 text-sm font-medium hover:bg-zinc-800 dark:hover:bg-emerald-400 transition-colors"
                             >
-                                <Download size={18} className="group-hover:-translate-y-0.5 transition-transform" />
-                                Download Resume
+                                <Download size={16} />
+                                <span>Download Resume</span>
                             </a>
+
                             <a
                                 href="#projects"
-                                className="btn-secondary w-full sm:w-auto text-sm sm:text-base gap-2 group"
+                                className="inline-flex items-center gap-2 px-4 py-2.5 rounded-md border border-zinc-300 dark:border-zinc-700 bg-white dark:bg-[#11141A] text-zinc-800 dark:text-zinc-200 text-sm font-medium hover:border-zinc-400 dark:hover:border-zinc-500 transition-colors"
                             >
-                                View Projects
-                                <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform text-[#00D4FF]" />
+                                <span>View Projects</span>
+                                <ArrowDownRight size={16} className="text-zinc-500 dark:text-zinc-400" />
                             </a>
-                        </motion.div>
+                        </div>
 
-                        {/* Social Links */}
-                        <motion.div
-                            className="flex items-center justify-center lg:justify-start gap-3 w-full"
-                            initial={{ opacity: 0, y: 20 }}
-                            animate={{ opacity: 1, y: 0 }}
-                            transition={{ duration: 0.6, delay: 0.5 }}
-                        >
-                            {[
-                                {
-                                    name: "GitHub",
-                                    icon: <Github size={20} />,
-                                    href: "https://github.com/amanverma1729",
-                                    external: true,
-                                },
-                                {
-                                    name: "LinkedIn",
-                                    icon: <Linkedin size={20} />,
-                                    href: "https://www.linkedin.com/in/amanverma1729/",
-                                    external: true,
-                                },
-                                {
-                                    name: "Email",
-                                    icon: <Mail size={20} />,
-                                    href: "https://mail.google.com/mail/?view=cm&fs=1&to=amanverma0202004@gmail.com",
-                                    external: true,
-                                },
-                                {
-                                    name: "LeetCode",
-                                    icon: <Code2 size={20} />,
-                                    href: "https://leetcode.com/u/amanverma1729_/",
-                                    external: true,
-                                },
-                            ].map((social, i) => (
+                        {/* Direct Links */}
+                        <div className="flex flex-wrap items-center gap-x-5 gap-y-2 pt-4 border-t border-zinc-200 dark:border-zinc-800/80">
+                            {socialLinks.map((social) => (
                                 <a
-                                    key={i}
+                                    key={social.name}
                                     href={social.href}
-                                    target={social.external ? "_blank" : "_self"}
-                                    rel={social.external ? "noopener noreferrer" : ""}
-                                    title={social.name}
-                                    aria-label={social.name}
-                                    className="p-3 rounded-xl bg-[#120E26]/80 border border-[#6C4DFF]/25 hover:border-[#00D4FF] hover:bg-[#6C4DFF]/20 text-gray-300 hover:text-[#00D4FF] transition-all duration-300 hover:scale-110 shadow-lg shadow-black/40"
+                                    target={social.href.startsWith('http') ? '_blank' : undefined}
+                                    rel={social.href.startsWith('http') ? 'noopener noreferrer' : undefined}
+                                    className="inline-flex items-center gap-1.5 text-xs font-mono text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-emerald-400 transition-colors"
                                 >
                                     {social.icon}
+                                    <span>{social.name}</span>
                                 </a>
                             ))}
-                        </motion.div>
+                        </div>
                     </div>
 
-                    {/* RIGHT COLUMN: Glowing Profile Visual */}
-                    <div className="flex flex-col items-center justify-center flex-1 w-full relative">
-                        <motion.div
-                            initial={{ opacity: 0, scale: 0.85 }}
-                            animate={{ opacity: 1, scale: 1 }}
-                            transition={{ type: "spring", stiffness: 90, damping: 18, delay: 0.2 }}
-                            className="relative w-64 h-64 sm:w-80 sm:h-80 md:w-96 md:h-96 group"
-                        >
-                            {/* Outer Spinning Glowing Gradient Ring */}
-                            <div className="absolute -inset-1 rounded-full bg-gradient-to-r from-[#6C4DFF] via-[#9D4EDD] to-[#00D4FF] opacity-80 blur-lg animate-pulse-glow group-hover:opacity-100 transition-opacity" />
-                            <div className="absolute -inset-1 rounded-full bg-gradient-to-r from-[#00D4FF] via-[#6C4DFF] to-[#9D4EDD] opacity-60 animate-spin-slow" />
-
-                            {/* Inner Ring Mask */}
-                            <div className="absolute inset-[4px] rounded-full bg-[#080812] z-10" />
-
-                            {/* Profile Image Wrapper */}
-                            <div className="absolute inset-[8px] rounded-full overflow-hidden z-20 border-2 border-white/20 shadow-2xl">
-                                <img
-                                    src={profile}
-                                    alt="Aman Verma"
-                                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
-                                    onError={(e) => {
-                                        e.target.src = "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&q=80&w=600";
-                                    }}
-                                />
+                    {/* Right Column: Clean Developer Card */}
+                    <div className="lg:col-span-5">
+                        <div className="rounded-lg border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-[#11141A] overflow-hidden shadow-sm">
+                            {/* Card Header with File Tabs */}
+                            <div className="flex items-center justify-between px-3 py-2 border-b border-zinc-200 dark:border-zinc-800 bg-zinc-50 dark:bg-[#161B22]">
+                                <div className="flex items-center gap-1.5 text-xs font-mono text-zinc-500 dark:text-zinc-400">
+                                    <Terminal size={13} className="text-emerald-600 dark:text-emerald-400" />
+                                    <span>profile</span>
+                                </div>
+                                <div className="flex items-center gap-1">
+                                    {tabs.map((tab) => (
+                                        <button
+                                            key={tab.id}
+                                            type="button"
+                                            onClick={() => setActiveTab(tab.id)}
+                                            className={`px-2 py-1 rounded text-[11px] font-mono transition-colors ${
+                                                activeTab === tab.id
+                                                    ? 'bg-white dark:bg-[#0B0D10] text-zinc-900 dark:text-zinc-100 border border-zinc-200 dark:border-zinc-700'
+                                                    : 'text-zinc-500 dark:text-zinc-400 hover:text-zinc-800 dark:hover:text-zinc-200'
+                                            }`}
+                                        >
+                                            {tab.label}
+                                        </button>
+                                    ))}
+                                </div>
                             </div>
 
-                            {/* Floating Tech Badge (Java / Full Stack) */}
-                            <motion.div
-                                animate={{ y: [0, -8, 0] }}
-                                transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-                                className="absolute -bottom-2 -left-2 z-30 px-4 py-2 rounded-2xl bg-[#120E26]/90 border border-[#6C4DFF]/40 backdrop-blur-xl shadow-xl flex items-center gap-2"
-                            >
-                                <Sparkles size={16} className="text-[#00D4FF]" />
-                                <span className="text-xs font-semibold text-white">Java Developer</span>
-                            </motion.div>
-                        </motion.div>
+                            {/* Portrait + Specs */}
+                            <div className="p-4 space-y-4">
+                                <div className="flex items-center gap-4">
+                                    <img
+                                        src={profile}
+                                        alt="Aman Verma"
+                                        className="w-16 h-16 rounded-md object-cover border border-zinc-200 dark:border-zinc-700 shrink-0"
+                                    />
+                                    <div className="min-w-0">
+                                        <div className="text-sm font-semibold text-zinc-900 dark:text-zinc-100 truncate">
+                                            Aman Verma
+                                        </div>
+                                        <div className="text-xs font-mono text-emerald-600 dark:text-emerald-400">
+                                            @amanverma1729
+                                        </div>
+                                        <div className="text-xs text-zinc-500 dark:text-zinc-400 mt-0.5">
+                                            B.Tech CSE · Class of 2026
+                                        </div>
+                                    </div>
+                                </div>
+
+                                {activeTab === 'overview' ? (
+                                    <pre className="p-3 rounded-md bg-zinc-50 dark:bg-[#0B0D10] border border-zinc-200 dark:border-zinc-800/80 text-xs font-mono leading-relaxed text-zinc-700 dark:text-zinc-300 overflow-x-auto">
+{`{
+  "role": "Java Full Stack Developer",
+  "location": "New Delhi, India",
+  "core": ["Java", "Spring Boot", "React", "MySQL"],
+  "recent": "Frontend Trainee @ Campaigning Source",
+  "dsa_solved": "300+ (LeetCode)"
+}`}
+                                    </pre>
+                                ) : (
+                                    <div className="p-3 rounded-md bg-zinc-50 dark:bg-[#0B0D10] border border-zinc-200 dark:border-zinc-800/80 text-xs font-mono space-y-1.5 text-zinc-700 dark:text-zinc-300">
+                                        <div className="flex justify-between gap-2">
+                                            <span className="text-zinc-500">backend</span>
+                                            <span className="text-right">Java, Spring Boot, Security, Node.js</span>
+                                        </div>
+                                        <div className="flex justify-between gap-2">
+                                            <span className="text-zinc-500">frontend</span>
+                                            <span className="text-right">React, JavaScript, Tailwind CSS</span>
+                                        </div>
+                                        <div className="flex justify-between gap-2">
+                                            <span className="text-zinc-500">database</span>
+                                            <span className="text-right">MySQL, SQL</span>
+                                        </div>
+                                        <div className="flex justify-between gap-2">
+                                            <span className="text-zinc-500">tooling</span>
+                                            <span className="text-right">Git, Docker, Postman, Vercel</span>
+                                        </div>
+                                    </div>
+                                )}
+                            </div>
+                        </div>
                     </div>
+
                 </div>
             </div>
         </section>

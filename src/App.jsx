@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { HashRouter as Router, Routes, Route } from 'react-router-dom';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
@@ -10,67 +10,35 @@ import CertificationsPreview from './components/CertificationsPreview';
 import CertificationsPage from './pages/CertificationsPage';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
-import FloatingBackground from './components/FloatingBackground';
-import CustomCursor from './components/CustomCursor';
-import MissionLoading from './components/MissionLoading';
 import ScrollProgress from './components/ScrollProgress';
-import { AnimatePresence } from 'framer-motion';
-
-import { useTheme } from './context/ThemeContext';
 
 const MainPortfolio = () => {
     return (
-        <>
+        <div className="min-h-screen bg-zinc-50 dark:bg-[#0B0D10] text-zinc-900 dark:text-zinc-100 dev-grid-bg flex flex-col">
             <Navbar />
-            <main className="relative z-10">
-                {/* Hero Section */}
+            <main className="flex-1">
                 <Hero />
-
-                {/* About Section */}
                 <About />
-
-                {/* Skills Section */}
                 <Skills />
-
-                {/* Experience & Education Section */}
                 <Experience />
-
-                {/* Certifications Preview Section */}
-                <CertificationsPreview />
-
-                {/* Projects Section */}
                 <Projects />
-
-                {/* Contact Section */}
+                <CertificationsPreview />
                 <Contact />
             </main>
-
             <Footer />
-        </>
+        </div>
     );
 };
 
 function App() {
-    const [loading, setLoading] = useState(true);
-    const { theme } = useTheme();
-
     return (
         <Router>
-            <div className={`relative min-h-screen selection:bg-[#6C4DFF]/40 overflow-x-hidden font-medium transition-colors duration-500 ${theme === 'light' ? 'bg-[#F4F6FB] text-slate-900' : 'bg-[#080812] text-white'}`}>
-                <AnimatePresence>
-                    {loading && <MissionLoading onComplete={() => setLoading(false)} />}
-                </AnimatePresence>
-
-                <CustomCursor />
-                <ScrollProgress />
-                <FloatingBackground />
-
-                <Routes>
-                    <Route path="/" element={<MainPortfolio />} />
-                    <Route path="/certifications" element={<CertificationsPage />} />
-                    <Route path="*" element={<MainPortfolio />} />
-                </Routes>
-            </div>
+            <ScrollProgress />
+            <Routes>
+                <Route path="/" element={<MainPortfolio />} />
+                <Route path="/certifications" element={<CertificationsPage />} />
+                <Route path="*" element={<MainPortfolio />} />
+            </Routes>
         </Router>
     );
 }

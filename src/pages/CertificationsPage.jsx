@@ -1,43 +1,41 @@
 import React, { useEffect } from 'react';
-import { motion } from 'framer-motion';
-import { ArrowLeft, Home, Award, Sparkles } from 'lucide-react';
+import { ArrowLeft, Sun, Moon } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import Certifications from '../components/Certifications';
-import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
-import CustomCursor from '../components/CustomCursor';
-import FloatingBackground from '../components/FloatingBackground';
+import { useTheme } from '../context/ThemeContext';
 
 const CertificationsPage = () => {
+    const { theme, toggleTheme } = useTheme();
+
     useEffect(() => {
         window.scrollTo(0, 0);
     }, []);
 
     return (
-        <div className="relative min-h-screen selection:bg-[#6C4DFF]/40 overflow-x-hidden font-medium bg-[#080812] text-white">
-            <CustomCursor />
-            <FloatingBackground />
-            
-            {/* Top Navigation Bar with Back Button */}
-            <header className="fixed top-0 left-0 right-0 z-50 py-4 bg-[#080812]/80 backdrop-blur-xl border-b border-[#6C4DFF]/20 shadow-xl">
-                <div className="max-w-7xl mx-auto px-4 sm:px-6 flex justify-between items-center">
-                    <Link 
+        <div className="min-h-screen bg-zinc-50 dark:bg-[#0B0D10] text-zinc-900 dark:text-zinc-100 dev-grid-bg flex flex-col">
+            <header className="sticky top-0 z-50 bg-white/90 dark:bg-[#0B0D10]/90 backdrop-blur-md border-b border-zinc-200 dark:border-zinc-800">
+                <div className="max-w-4xl mx-auto px-4 sm:px-6 h-16 flex justify-between items-center">
+                    <Link
                         to="/"
-                        className="inline-flex items-center gap-2.5 px-4 py-2 rounded-xl bg-[#120E26] border border-[#6C4DFF]/30 text-xs sm:text-sm font-semibold text-gray-200 hover:text-white hover:border-[#00D4FF] hover:bg-[#6C4DFF]/20 transition-all duration-300 shadow-md group"
+                        className="inline-flex items-center gap-2 text-xs sm:text-sm font-mono text-zinc-700 dark:text-zinc-300 hover:text-zinc-950 dark:hover:text-emerald-400 transition-colors"
                     >
-                        <ArrowLeft size={16} className="text-[#00D4FF] group-hover:-translate-x-1 transition-transform" />
-                        <span>Back to Main Portfolio</span>
+                        <ArrowLeft size={15} />
+                        <span>cd ~/portfolio</span>
                     </Link>
 
-                    <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-[#120E26]/80 border border-[#6C4DFF]/30 text-xs font-mono text-[#00D4FF]">
-                        <Award size={14} />
-                        <span>Interactive Trail View</span>
-                    </div>
+                    <button
+                        type="button"
+                        onClick={toggleTheme}
+                        className="p-2 rounded-md border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-[#11141A] text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-100 transition-colors"
+                        aria-label={`Switch to ${theme === 'dark' ? 'light' : 'dark'} theme`}
+                    >
+                        {theme === 'dark' ? <Sun size={16} /> : <Moon size={16} />}
+                    </button>
                 </div>
             </header>
 
-            {/* Main Certifications Trail */}
-            <main className="pt-20">
+            <main className="flex-1 pt-8 pb-16">
                 <Certifications />
             </main>
 

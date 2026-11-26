@@ -1,6 +1,5 @@
 import React from 'react';
-import { motion } from 'framer-motion';
-import { ExternalLink, Github, CheckCircle2 } from 'lucide-react';
+import { ArrowUpRight, Github, FolderGit2 } from 'lucide-react';
 
 const ProjectCard = ({
     title,
@@ -8,133 +7,95 @@ const ProjectCard = ({
     description,
     features = [],
     tags = [],
+    category,
     github,
     link,
-    gradient = "from-[#6C4DFF] to-[#00D4FF]",
-    delay = 0
 }) => {
     return (
-        <motion.div
-            layout
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, scale: 0.9 }}
-            transition={{ duration: 0.5, delay }}
-            className="glass-card glass-card-hover rounded-3xl overflow-hidden flex flex-col h-full border border-[#6C4DFF]/20 group relative"
-        >
-            {/* Project Image Header */}
-            <div className="h-48 w-full relative overflow-hidden bg-[#080812]">
-
+        <article className="rounded-lg border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-[#11141A] overflow-hidden flex flex-col h-full hover:border-zinc-300 dark:hover:border-zinc-700 transition-colors">
+            {/* Screenshot / Preview */}
+            <div className="aspect-[16/9] w-full bg-zinc-100 dark:bg-[#0B0D10] border-b border-zinc-200 dark:border-zinc-800 overflow-hidden">
                 {image ? (
                     <img
                         src={image}
-                        alt={`${title} preview`}
-                        className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                        alt={`${title} screenshot`}
+                        className="w-full h-full object-cover object-top"
                     />
                 ) : (
-                    <div
-                        className={`w-full h-full bg-gradient-to-br ${gradient} flex items-center justify-center`}
-                    >
-                        <div className="text-white text-6xl opacity-20">
-                            ✦
-                        </div>
+                    <div className="w-full h-full flex flex-col items-center justify-center gap-2 text-zinc-500 dark:text-zinc-400 font-mono text-xs">
+                        <FolderGit2 size={24} strokeWidth={1.5} />
+                        <span>{title.toLowerCase().replace(/\s+/g, '-')}</span>
                     </div>
                 )}
-
-                {/* Dark Vignette Overlay */}
-                <div className="absolute inset-0 bg-gradient-to-t from-[#080812] via-[#080812]/20 to-transparent z-10" />
-
-                {/* Featured Badge */}
-                <div className="absolute top-4 right-4 z-20">
-                    <span className="px-3 py-1 bg-[#080812]/80 backdrop-blur-md rounded-full text-xs font-mono font-bold text-[#00D4FF] border border-[#00D4FF]/40 shadow-lg">
-                        Featured
-                    </span>
-                </div>
             </div>
 
-            {/* Content Body */}
-            <div className="p-6 sm:p-7 flex flex-col flex-1 relative z-20">
+            {/* Body */}
+            <div className="p-5 flex flex-col flex-1">
+                <div className="flex items-baseline justify-between gap-2 mb-2">
+                    <h3 className="text-lg font-semibold text-zinc-900 dark:text-zinc-100">
+                        {title}
+                    </h3>
+                    {category && (
+                        <span className="font-mono text-[11px] text-zinc-500 dark:text-zinc-400 shrink-0">
+                            {category}
+                        </span>
+                    )}
+                </div>
 
-                <h3 className="text-xl sm:text-2xl font-bold text-white mb-2 group-hover:text-[#00D4FF] transition-colors tracking-tight">
-                    {title}
-                </h3>
-
-                <p className="text-xs sm:text-sm text-gray-300 leading-relaxed mb-5">
+                <p className="text-xs sm:text-sm text-zinc-600 dark:text-zinc-400 leading-relaxed mb-4">
                     {description}
                 </p>
 
-                {/* Features List */}
                 {features.length > 0 && (
-                    <div className="mb-5 space-y-1.5 bg-[#080812]/50 p-3.5 rounded-xl border border-white/5">
-
-                        <span className="text-[11px] font-mono text-gray-400 block font-semibold mb-1 uppercase tracking-wider">
-                            Key Features:
-                        </span>
-
-                        <div className="grid grid-cols-1 sm:grid-cols-2 gap-1.5">
-                            {features.map((feature, idx) => (
-                                <div
-                                    key={idx}
-                                    className="flex items-center gap-1.5 text-xs text-gray-200"
-                                >
-                                    <CheckCircle2
-                                        size={13}
-                                        className="text-[#00D4FF] shrink-0"
-                                    />
-
-                                    <span className="truncate">
-                                        {feature}
-                                    </span>
-                                </div>
-                            ))}
-                        </div>
-                    </div>
+                    <ul className="mb-4 space-y-1 text-xs text-zinc-600 dark:text-zinc-400">
+                        {features.map((feature, idx) => (
+                            <li key={idx} className="flex items-start gap-2">
+                                <span className="text-emerald-600 dark:text-emerald-400 font-mono">-</span>
+                                <span>{feature}</span>
+                            </li>
+                        ))}
+                    </ul>
                 )}
 
-                {/* Tech Stack Tags */}
-                <div className="flex flex-wrap gap-1.5 mb-6 mt-auto">
-
-                    {tags.map(tag => (
+                {/* Stack Tags */}
+                <div className="flex flex-wrap gap-1.5 mb-5 mt-auto pt-2">
+                    {tags.map((tag) => (
                         <span
                             key={tag}
-                            className="px-2.5 py-1 bg-[#120E26] rounded-lg text-[11px] font-mono font-medium text-gray-300 border border-[#6C4DFF]/25"
+                            className="px-2 py-0.5 rounded text-[11px] font-mono bg-zinc-100 dark:bg-[#0B0D10] border border-zinc-200 dark:border-zinc-800 text-zinc-700 dark:text-zinc-300"
                         >
                             {tag}
                         </span>
                     ))}
-
                 </div>
 
-                {/* Action Buttons */}
-                <div className="flex items-center gap-3 pt-4 border-t border-white/10 mt-auto">
-
+                {/* Links */}
+                <div className="flex items-center gap-4 pt-3.5 border-t border-zinc-200 dark:border-zinc-800 text-xs font-mono">
                     {github && (
                         <a
                             href={github}
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="flex-1 flex items-center justify-center gap-2 px-4 py-2.5 bg-white/5 border border-white/15 rounded-xl text-white text-xs sm:text-sm font-semibold hover:bg-white/10 hover:border-white/30 transition-all duration-300"
+                            className="inline-flex items-center gap-1.5 text-zinc-700 dark:text-zinc-300 hover:text-zinc-950 dark:hover:text-emerald-400 transition-colors"
                         >
-                            <Github size={16} />
-                            <span>GitHub</span>
+                            <Github size={14} />
+                            <span>Source</span>
                         </a>
                     )}
-
                     {link && (
                         <a
                             href={link}
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="flex-1 flex items-center justify-center gap-2 px-4 py-2.5 bg-gradient-to-r from-[#6C4DFF] to-[#00D4FF] rounded-xl text-white text-xs sm:text-sm font-semibold shadow-lg shadow-[#6C4DFF]/25 hover:shadow-[#00D4FF]/40 transition-all duration-300"
+                            className="inline-flex items-center gap-1 text-emerald-700 dark:text-emerald-400 hover:underline transition-colors ml-auto"
                         >
-                            <ExternalLink size={16} />
                             <span>Live Demo</span>
+                            <ArrowUpRight size={14} />
                         </a>
                     )}
-
                 </div>
             </div>
-        </motion.div>
+        </article>
     );
 };
 
