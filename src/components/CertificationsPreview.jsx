@@ -5,11 +5,11 @@ import { certifications } from '../data/certifications';
 
 const CertificationsPreview = () => {
     return (
-        <section id="certifications" className="py-20 px-4 sm:px-6 border-b border-zinc-200 dark:border-zinc-800/80">
+        <section id="certifications" className="py-14 sm:py-20 px-4 sm:px-6 border-b border-zinc-200 dark:border-zinc-800/80">
             <div className="max-w-5xl mx-auto">
-                <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-10">
+                <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-8 sm:mb-10">
                     <div>
-                        <span className="font-mono text-xs text-emerald-600 dark:text-emerald-400 block mb-2">
+                        <span className="font-mono text-xs text-emerald-600 dark:text-emerald-400 block mb-1.5">
                             05 / certifications
                         </span>
                         <h2 className="text-2xl sm:text-3xl font-bold tracking-tight text-zinc-900 dark:text-zinc-50">
@@ -19,18 +19,18 @@ const CertificationsPreview = () => {
 
                     <Link
                         to="/certifications"
-                        className="inline-flex items-center gap-1.5 text-xs font-mono text-emerald-700 dark:text-emerald-400 hover:underline"
+                        className="inline-flex items-center gap-1.5 text-xs font-mono text-emerald-700 dark:text-emerald-400 hover:underline self-start sm:self-auto"
                     >
                         <span>View full archive ({certifications.length})</span>
                         <ArrowRight size={14} />
                     </Link>
                 </div>
 
-                <div className="rounded-lg border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-[#11141A] divide-y divide-zinc-200 dark:divide-zinc-800">
+                <div className="rounded-lg border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-[#11141A] divide-y divide-zinc-200 dark:divide-zinc-800 overflow-hidden shadow-sm">
                     {certifications.map((cert, index) => (
                         <div
                             key={index}
-                            className="p-4 sm:p-5 flex flex-col sm:flex-row sm:items-center justify-between gap-3"
+                            className="p-4 sm:p-5 flex flex-col sm:flex-row sm:items-center justify-between gap-3 hover:bg-zinc-50/70 dark:hover:bg-[#161B22]/60 transition-colors"
                         >
                             <div className="flex items-start gap-3 min-w-0">
                                 <Award size={16} className="text-emerald-600 dark:text-emerald-400 mt-0.5 shrink-0" />
@@ -56,13 +56,13 @@ const CertificationsPreview = () => {
                                     href={cert.credentialUrl}
                                     target="_blank"
                                     rel="noopener noreferrer"
-                                    className="inline-flex items-center gap-1 text-xs font-mono text-zinc-700 dark:text-zinc-300 hover:text-emerald-600 dark:hover:text-emerald-400 shrink-0"
+                                    className="self-start sm:self-auto inline-flex items-center gap-1.5 px-2.5 py-1.5 sm:px-2.5 sm:py-1 rounded border border-zinc-200 dark:border-zinc-800 bg-zinc-50 dark:bg-[#0B0D10] text-xs font-mono text-zinc-700 dark:text-zinc-300 hover:border-emerald-500/40 hover:text-emerald-700 dark:hover:text-emerald-400 transition-colors shrink-0 ml-7 sm:ml-0"
                                 >
                                     <span>Verify</span>
                                     <ExternalLink size={12} />
                                 </a>
                             ) : (
-                                <span className="text-xs font-mono text-zinc-500 dark:text-zinc-400 shrink-0">
+                                <span className="self-start sm:self-auto text-xs font-mono text-zinc-500 dark:text-zinc-400 shrink-0 ml-7 sm:ml-0">
                                     In progress
                                 </span>
                             )}

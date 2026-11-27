@@ -95,11 +95,11 @@ const Projects = () => {
             : projectsData.filter((project) => project.category === filter);
 
     return (
-        <section id="projects" className="py-20 px-4 sm:px-6 border-b border-zinc-200 dark:border-zinc-800/80">
+        <section id="projects" className="py-14 sm:py-20 px-4 sm:px-6 border-b border-zinc-200 dark:border-zinc-800/80">
             <div className="max-w-5xl mx-auto">
-                <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-10">
+                <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-8 sm:mb-10">
                     <div>
-                        <span className="font-mono text-xs text-emerald-600 dark:text-emerald-400 block mb-2">
+                        <span className="font-mono text-xs text-emerald-600 dark:text-emerald-400 block mb-1.5">
                             04 / projects
                         </span>
                         <h2 className="text-2xl sm:text-3xl font-bold tracking-tight text-zinc-900 dark:text-zinc-50">
@@ -107,16 +107,16 @@ const Projects = () => {
                         </h2>
                     </div>
 
-                    {/* Filter Tabs */}
-                    <div className="flex flex-wrap gap-1.5">
+                    {/* Mobile Horizontal Scroll / Desktop Wrap Filter */}
+                    <div className="flex items-center gap-1.5 overflow-x-auto no-scrollbar -mx-4 px-4 sm:mx-0 sm:px-0 sm:flex-wrap pb-1 sm:pb-0">
                         {categories.map((category) => (
                             <button
                                 key={category}
                                 type="button"
                                 onClick={() => setFilter(category)}
-                                className={`px-2.5 py-1 rounded text-xs font-mono transition-colors ${
+                                className={`shrink-0 px-3 py-1.5 sm:px-2.5 sm:py-1 rounded-md text-xs font-mono transition-colors ${
                                     filter === category
-                                        ? 'bg-zinc-900 dark:bg-zinc-100 text-white dark:text-zinc-900 font-medium'
+                                        ? 'bg-zinc-900 dark:bg-zinc-100 text-white dark:text-zinc-900 font-medium shadow-sm'
                                         : 'text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-100 border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-[#11141A]'
                                 }`}
                             >
@@ -127,7 +127,7 @@ const Projects = () => {
                 </div>
 
                 {/* Grid */}
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-5 sm:gap-6">
                     {filteredProjects.map((project) => (
                         <ProjectCard key={project.title} {...project} />
                     ))}

@@ -35,10 +35,10 @@ const educationData = [
 
 const Experience = () => {
     return (
-        <section id="experience" className="py-20 px-4 sm:px-6 border-b border-zinc-200 dark:border-zinc-800/80">
+        <section id="experience" className="py-14 sm:py-20 px-4 sm:px-6 border-b border-zinc-200 dark:border-zinc-800/80">
             <div className="max-w-5xl mx-auto">
-                <div className="mb-10">
-                    <span className="font-mono text-xs text-emerald-600 dark:text-emerald-400 block mb-2">
+                <div className="mb-8 sm:mb-10">
+                    <span className="font-mono text-xs text-emerald-600 dark:text-emerald-400 block mb-1.5">
                         03 / experience
                     </span>
                     <h2 className="text-2xl sm:text-3xl font-bold tracking-tight text-zinc-900 dark:text-zinc-50">
@@ -46,25 +46,25 @@ const Experience = () => {
                     </h2>
                 </div>
 
-                <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-12">
+                <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12">
                     {/* Work Experience */}
                     <div>
-                        <div className="flex items-center gap-2 text-sm font-semibold text-zinc-900 dark:text-zinc-100 mb-6 pb-2 border-b border-zinc-200 dark:border-zinc-800">
+                        <div className="flex items-center gap-2 text-sm font-semibold text-zinc-900 dark:text-zinc-100 mb-5 pb-2 border-b border-zinc-200 dark:border-zinc-800">
                             <Briefcase size={16} className="text-emerald-600 dark:text-emerald-400" />
                             <span>Work Experience</span>
                         </div>
 
-                        <div className="relative border-l border-zinc-200 dark:border-zinc-800 pl-6 space-y-6">
+                        <div className="relative border-l border-zinc-200 dark:border-zinc-800 pl-5 sm:pl-6 space-y-5">
                             {experienceData.map((item, idx) => (
                                 <div key={idx} className="relative">
-                                    <span className="absolute -left-[29px] top-1.5 w-2.5 h-2.5 rounded-full bg-emerald-500 ring-4 ring-zinc-50 dark:ring-[#0B0D10]" />
+                                    <span className="absolute -left-[25px] sm:-left-[29px] top-1.5 w-2.5 h-2.5 rounded-full bg-emerald-500 ring-4 ring-zinc-50 dark:ring-[#0B0D10]" />
 
-                                    <div className="rounded-lg border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-[#11141A] p-5">
-                                        <div className="flex flex-wrap items-baseline justify-between gap-2 mb-1">
+                                    <div className="rounded-lg border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-[#11141A] p-4 sm:p-5 hover:border-zinc-300 dark:hover:border-zinc-700 transition-colors shadow-sm">
+                                        <div className="flex flex-col sm:flex-row sm:items-baseline justify-between gap-1 sm:gap-2 mb-1.5">
                                             <h3 className="text-base font-semibold text-zinc-900 dark:text-zinc-100">
                                                 {item.title}
                                             </h3>
-                                            <span className="font-mono text-xs text-zinc-500 dark:text-zinc-400">
+                                            <span className="font-mono text-[11px] sm:text-xs text-zinc-500 dark:text-zinc-400 shrink-0">
                                                 {item.date}
                                             </span>
                                         </div>
@@ -100,22 +100,22 @@ const Experience = () => {
 
                     {/* Education */}
                     <div>
-                        <div className="flex items-center gap-2 text-sm font-semibold text-zinc-900 dark:text-zinc-100 mb-6 pb-2 border-b border-zinc-200 dark:border-zinc-800">
+                        <div className="flex items-center gap-2 text-sm font-semibold text-zinc-900 dark:text-zinc-100 mb-5 pb-2 border-b border-zinc-200 dark:border-zinc-800">
                             <GraduationCap size={16} className="text-emerald-600 dark:text-emerald-400" />
                             <span>Education</span>
                         </div>
 
-                        <div className="relative border-l border-zinc-200 dark:border-zinc-800 pl-6 space-y-5">
+                        <div className="relative border-l border-zinc-200 dark:border-zinc-800 pl-5 sm:pl-6 space-y-4 sm:space-y-5">
                             {educationData.map((item, idx) => (
                                 <div key={idx} className="relative">
-                                    <span className="absolute -left-[29px] top-1.5 w-2.5 h-2.5 rounded-full bg-zinc-400 dark:bg-zinc-600 ring-4 ring-zinc-50 dark:ring-[#0B0D10]" />
+                                    <span className="absolute -left-[25px] sm:-left-[29px] top-1.5 w-2.5 h-2.5 rounded-full bg-zinc-400 dark:bg-zinc-600 ring-4 ring-zinc-50 dark:ring-[#0B0D10]" />
 
-                                    <div className="rounded-lg border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-[#11141A] p-5">
-                                        <div className="flex flex-wrap items-baseline justify-between gap-2 mb-1">
-                                            <h3 className="text-base font-semibold text-zinc-900 dark:text-zinc-100">
+                                    <div className="rounded-lg border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-[#11141A] p-4 sm:p-5 hover:border-zinc-300 dark:hover:border-zinc-700 transition-colors shadow-sm">
+                                        <div className="flex flex-col sm:flex-row sm:items-baseline justify-between gap-1 sm:gap-2 mb-1">
+                                            <h3 className="text-sm sm:text-base font-semibold text-zinc-900 dark:text-zinc-100">
                                                 {item.degree}
                                             </h3>
-                                            <span className="font-mono text-xs text-zinc-500 dark:text-zinc-400">
+                                            <span className="font-mono text-[11px] sm:text-xs text-zinc-500 dark:text-zinc-400 shrink-0">
                                                 {item.year}
                                             </span>
                                         </div>

@@ -70,10 +70,10 @@ const Contact = () => {
     ];
 
     return (
-        <section id="contact" className="py-20 px-4 sm:px-6">
+        <section id="contact" className="py-14 sm:py-20 px-4 sm:px-6">
             <div className="max-w-5xl mx-auto">
-                <div className="mb-10">
-                    <span className="font-mono text-xs text-emerald-600 dark:text-emerald-400 block mb-2">
+                <div className="mb-8 sm:mb-10">
+                    <span className="font-mono text-xs text-emerald-600 dark:text-emerald-400 block mb-1.5">
                         06 / contact
                     </span>
                     <h2 className="text-2xl sm:text-3xl font-bold tracking-tight text-zinc-900 dark:text-zinc-50 mb-2">
@@ -84,9 +84,9 @@ const Contact = () => {
                     </p>
                 </div>
 
-                <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+                <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 sm:gap-8 items-start">
                     {/* Left Column: Form */}
-                    <div className="lg:col-span-7 rounded-lg border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-[#11141A] p-5 sm:p-6">
+                    <div className="lg:col-span-7 rounded-lg border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-[#11141A] p-4 sm:p-6 shadow-sm">
                         {formStatus === 'success' ? (
                             <div className="py-12 flex flex-col items-center text-center gap-3">
                                 <div className="w-11 h-11 rounded-full bg-emerald-500/10 border border-emerald-500/40 flex items-center justify-center text-emerald-600 dark:text-emerald-400">
@@ -119,7 +119,7 @@ const Contact = () => {
                                             name="name"
                                             type="text"
                                             placeholder="Your name"
-                                            className="w-full rounded-md bg-zinc-50 dark:bg-[#0B0D10] border border-zinc-300 dark:border-zinc-800 px-3 py-2 text-sm text-zinc-900 dark:text-zinc-100 placeholder:text-zinc-400 dark:placeholder:text-zinc-600 focus:outline-none focus:border-emerald-500 transition-colors"
+                                            className="w-full rounded-md bg-zinc-50 dark:bg-[#0B0D10] border border-zinc-300 dark:border-zinc-800 px-3 py-2.5 text-base sm:text-sm text-zinc-900 dark:text-zinc-100 placeholder:text-zinc-400 dark:placeholder:text-zinc-600 focus:outline-none focus:border-emerald-500 transition-colors"
                                         />
                                     </div>
                                     <div>
@@ -132,7 +132,7 @@ const Contact = () => {
                                             name="email"
                                             type="email"
                                             placeholder="you@example.com"
-                                            className="w-full rounded-md bg-zinc-50 dark:bg-[#0B0D10] border border-zinc-300 dark:border-zinc-800 px-3 py-2 text-sm text-zinc-900 dark:text-zinc-100 placeholder:text-zinc-400 dark:placeholder:text-zinc-600 focus:outline-none focus:border-emerald-500 transition-colors"
+                                            className="w-full rounded-md bg-zinc-50 dark:bg-[#0B0D10] border border-zinc-300 dark:border-zinc-800 px-3 py-2.5 text-base sm:text-sm text-zinc-900 dark:text-zinc-100 placeholder:text-zinc-400 dark:placeholder:text-zinc-600 focus:outline-none focus:border-emerald-500 transition-colors"
                                         />
                                     </div>
                                 </div>
@@ -147,7 +147,7 @@ const Contact = () => {
                                             name="phone"
                                             type="tel"
                                             placeholder="+91 9876543210"
-                                            className="w-full rounded-md bg-zinc-50 dark:bg-[#0B0D10] border border-zinc-300 dark:border-zinc-800 px-3 py-2 text-sm text-zinc-900 dark:text-zinc-100 placeholder:text-zinc-400 dark:placeholder:text-zinc-600 focus:outline-none focus:border-emerald-500 transition-colors"
+                                            className="w-full rounded-md bg-zinc-50 dark:bg-[#0B0D10] border border-zinc-300 dark:border-zinc-800 px-3 py-2.5 text-base sm:text-sm text-zinc-900 dark:text-zinc-100 placeholder:text-zinc-400 dark:placeholder:text-zinc-600 focus:outline-none focus:border-emerald-500 transition-colors"
                                         />
                                     </div>
                                     <div>
@@ -160,7 +160,7 @@ const Contact = () => {
                                             name="subject"
                                             type="text"
                                             placeholder="Job opportunity / Project"
-                                            className="w-full rounded-md bg-zinc-50 dark:bg-[#0B0D10] border border-zinc-300 dark:border-zinc-800 px-3 py-2 text-sm text-zinc-900 dark:text-zinc-100 placeholder:text-zinc-400 dark:placeholder:text-zinc-600 focus:outline-none focus:border-emerald-500 transition-colors"
+                                            className="w-full rounded-md bg-zinc-50 dark:bg-[#0B0D10] border border-zinc-300 dark:border-zinc-800 px-3 py-2.5 text-base sm:text-sm text-zinc-900 dark:text-zinc-100 placeholder:text-zinc-400 dark:placeholder:text-zinc-600 focus:outline-none focus:border-emerald-500 transition-colors"
                                         />
                                     </div>
                                 </div>
@@ -175,14 +175,14 @@ const Contact = () => {
                                         name="message"
                                         rows="4"
                                         placeholder="Write your message..."
-                                        className="w-full rounded-md bg-zinc-50 dark:bg-[#0B0D10] border border-zinc-300 dark:border-zinc-800 px-3 py-2 text-sm text-zinc-900 dark:text-zinc-100 placeholder:text-zinc-400 dark:placeholder:text-zinc-600 focus:outline-none focus:border-emerald-500 transition-colors resize-none"
+                                        className="w-full rounded-md bg-zinc-50 dark:bg-[#0B0D10] border border-zinc-300 dark:border-zinc-800 px-3 py-2.5 text-base sm:text-sm text-zinc-900 dark:text-zinc-100 placeholder:text-zinc-400 dark:placeholder:text-zinc-600 focus:outline-none focus:border-emerald-500 transition-colors resize-none"
                                     />
                                 </div>
 
                                 <button
                                     disabled={formStatus === 'sending'}
                                     type="submit"
-                                    className="inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-md bg-zinc-900 dark:bg-emerald-500 text-white dark:text-zinc-950 text-sm font-medium hover:bg-zinc-800 dark:hover:bg-emerald-400 disabled:opacity-60 transition-colors w-full sm:w-auto"
+                                    className="inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-md bg-zinc-900 dark:bg-emerald-500 text-white dark:text-zinc-950 text-sm font-medium hover:bg-zinc-800 dark:hover:bg-emerald-400 disabled:opacity-60 transition-colors w-full sm:w-auto shadow-sm"
                                 >
                                     {formStatus === 'sending' ? (
                                         <span className="font-mono text-xs">Sending...</span>
@@ -199,9 +199,9 @@ const Contact = () => {
 
                     {/* Right Column: Direct Channels */}
                     <div className="lg:col-span-5 space-y-3">
-                        <div className="rounded-lg border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-[#11141A] divide-y divide-zinc-200 dark:divide-zinc-800">
+                        <div className="rounded-lg border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-[#11141A] divide-y divide-zinc-200 dark:divide-zinc-800 overflow-hidden shadow-sm">
                             {contactInfo.map((info) => (
-                                <div key={info.title} className="p-4 flex items-center justify-between gap-3">
+                                <div key={info.title} className="p-4 flex items-center justify-between gap-3 hover:bg-zinc-50/70 dark:hover:bg-[#161B22]/60 transition-colors">
                                     <div className="flex items-center gap-3 min-w-0">
                                         <span className="text-zinc-500 dark:text-zinc-400 shrink-0">
                                             {info.icon}
@@ -231,11 +231,11 @@ const Contact = () => {
                                         <button
                                             type="button"
                                             onClick={handleCopyEmail}
-                                            className="p-1.5 rounded border border-zinc-200 dark:border-zinc-800 text-zinc-500 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-100 transition-colors shrink-0"
+                                            className="p-2 rounded-md border border-zinc-200 dark:border-zinc-800 bg-zinc-50 dark:bg-[#0B0D10] text-zinc-500 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-100 transition-colors shrink-0"
                                             title="Copy email address"
                                             aria-label="Copy email address"
                                         >
-                                            {copied ? <Check size={14} className="text-emerald-500" /> : <Copy size={14} />}
+                                            {copied ? <Check size={15} className="text-emerald-500" /> : <Copy size={15} />}
                                         </button>
                                     )}
                                 </div>
